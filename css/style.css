@@ -522,7 +522,7 @@ nav ul li a.active:after {
 footer {
   background-color: var(--dark);
   color: white;
-  padding: 60px 0 30px;
+  padding: 60px 0 10px 0;
 }
 
 .footer-container {
@@ -531,13 +531,13 @@ footer {
   gap: 40px;
 }
 
-.footer-col h3 {
+.footer-links h3 {
   font-size: 1.2rem;
   margin-bottom: 20px;
   color: var(--secondary);
 }
 
-.footer-col ul {
+.footer-links ul {
   list-style: none;
   padding-left: 0 !important;
 }
@@ -546,14 +546,14 @@ footer {
   margin-bottom: 10px;
 }
 
-.footer-col ul li a {
+.footer-links ul li a {
   color: #ccc;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.footer-col ul li a:hover {
-  color: white;
+.footer-links ul li a:hover {
+  color: var(--secondary);
 }
 
 .social-links {
@@ -582,7 +582,7 @@ footer {
 
 .copyright {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid #555;
   color: #ccc;
@@ -664,6 +664,20 @@ footer {
   .logo {
     height: 40px;
   }
+
+  .contact-container {
+    margin-bottom: 5rem;
+    margin-top: -10%;
+  }
+}
+
+.contact-card {
+  margin-bottom: 10rem;
+  margin-top: -10rem;
+}
+
+.contact-header {
+  padding: 10rem 0;
 }
 
 
