@@ -678,6 +678,7 @@ footer {
 
 .contact-header {
   padding: 10rem 0;
+  color: #ffff;
 }
 
 
@@ -925,4 +926,9 @@ footer {
 .contact-form h4 {
   margin-bottom: 20px;
   color: #1a4f8c;
+}
+
+.contact-info p a {
+  text-decoration: none;
+  color: #fff;
 }
