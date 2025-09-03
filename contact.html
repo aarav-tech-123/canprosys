@@ -75,17 +75,17 @@
             <div class="col-md-8">
                 <div class="contact-form">
                     <h4>Send Us a Message</h4>
-                    <form id="taxContactForm">
+                    <form id="taxContactForm" action="send-mail.php" method="POST">
                         <div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Your Name" required>
+                                    <input type="text" placeholder="Your Name" required id="noncompliance">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email" id="Your Email" required>
+                                    <input type="email" name="email" placeholder="Your Email" required id="email">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="tel" placeholder="Your Phone">
+                                    <input type="tel" placeholder="Your Phone" id="phone">
                                 </div>
                                 <div class="col-md-6">
                                     <select required>
@@ -98,7 +98,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea placeholder="How can we help you?" required></textarea>
+                                    <textarea placeholder="How can we help you?" required id="message"></textarea>
                                 </div>
                             </div>
                         </div>
