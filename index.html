@@ -247,23 +247,49 @@
                         <div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Your Name" required>
+                                    <input type="text" placeholder="Your Name *" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email" id="Your Email" required>
+                                    <input type="email" name="email" placeholder="Your Email *" required>
                                 </div>
                                 <div class="col-md-6">
                                     <input type="tel" placeholder="Your Phone">
                                 </div>
                                 <div class="col-md-6">
                                     <select required>
-                                        <option value="" disabled selected>Select Service</option>
+                                        <option value="" disabled selected>Select Service *</option>
                                         <option value="tax-settlement">CRA Tax Settlement/Relief</option>
                                         <option value="bookkeeping">Bookkeeping Services</option>
                                         <option value="tax-preparation">Tax Preparation & Filing</option>
                                         <option value="accounting">Accounting Services</option>
                                         <option value="other">Other</option>
                                     </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <select name="" id="" required>
+                                        <option value="" disabled selected>Select Your Provience/Territory *</option>
+                                        <option value="Alberta">Alberta</option>
+                                        <option value="British Columbia">British Columbia</option>
+                                        <option value="Manitoba">Manitoba</option>
+                                        <option value="New Brunswick">New Brunswick</option>
+                                        <option value="Newfoundland and labrador">Newfoundland and labrador</option>
+                                        <option value="Nova Scotia">Nova Scotia</option>
+                                        <option value="Ontrio">Ontrio</option>
+                                        <option value="Prince Edward Island">Prince Edward Island</option>
+                                        <option value="Quebec">Quebec</option>
+                                        <option value="saskatchewan">saskatchewan</option>
+                                        <option value="" disabled style="font-weight: bold;">--Territories--</option>
+                                        <option value="Northwest Territories">Northwest Territories</option>
+                                        <option value="nunavut">nunavut</option>
+                                        <option value="Yukon">Yukon</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="date" name="date" id="" placeholder="Select Date">
+                                </div>
+                                <div class="col-md-3">
+                                     <input type="time" name="time" id="" placeholder="Select Time Slot">
                                 </div>
                                 <div class="col-md-12">
                                     <textarea placeholder="How can we help you?" required></textarea>
@@ -323,6 +349,7 @@
                         <li><a href="finance_and_accounting.html">Accounting Services</a></li>
                     </ul>
                 </div>
+
                 <div class="col-md-3 footer-links">
                     <h3>Quick Links</h3>
                     <ul>
