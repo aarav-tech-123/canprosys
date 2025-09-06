@@ -903,7 +903,7 @@ footer {
   }
 
   .page-header {
-    padding: 120px 0 80px;
+    padding: 60px 0 80px;
   }
 
   .page-header h1 {
@@ -948,4 +948,10 @@ footer {
 .contact-info p a {
   text-decoration: none;
   color: #fff;
+}
+
+
+
+.accordion-button:focus {
+  box-shadow: none !important;
 }
