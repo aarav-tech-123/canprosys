@@ -674,12 +674,12 @@ footer {
   }
 
   .section-title p {
-    text-align: left;
+    text-align: justify;
     font-size: 1rem;
   }
 
   .hero p {
-    text-align: left;
+    text-align: justify;
     font-size: 1rem;
   }
   
