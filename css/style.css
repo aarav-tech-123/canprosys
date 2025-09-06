@@ -645,11 +645,11 @@ footer {
   }
 
   .hero {
-    padding: 120px 0 80px;
+    padding: 80px 0 80px;
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .section-title h2 {
