@@ -675,7 +675,6 @@ footer {
 
   .section-title p {
     text-align: left;
-    font-size: 1rem;
   }
 
   .hero p {
@@ -913,6 +912,7 @@ footer {
 
   .section-title h2 {
     font-size: 2rem;
+    text-align: left;
   }
 
   .about-stats {
