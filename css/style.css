@@ -535,7 +535,7 @@ footer {
 
 .footer-links h3 {
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   color: var(--secondary);
 }
 
@@ -562,6 +562,7 @@ footer {
   display: flex;
   gap: 15px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .social-links a {
@@ -673,7 +674,17 @@ footer {
   }
 
   .section-title p {
-    text-align: justify;
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .hero p {
+    text-align: left;
+    font-size: 1rem;
+  }
+  
+  section {
+    padding: 40px 0;
   }
 }
 
