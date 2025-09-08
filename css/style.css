@@ -955,3 +955,11 @@ footer {
 .accordion-button:focus {
   box-shadow: none !important;
 }
+
+.accordion-button::after {
+  background-image: url('../assets/svg_314486.svg') !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url('../assets/svg_314356.svg') !important;
+}
