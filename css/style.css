@@ -926,6 +926,10 @@ footer {
   .logo {
     height: 40px;
   }
+
+  .tax_settlement {
+    margin-top: 20px;
+  }
 }
 
 .contact-info {
