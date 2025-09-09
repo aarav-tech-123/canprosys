@@ -967,3 +967,8 @@ footer {
 .accordion-button:not(.collapsed)::after {
   background-image: url('../assets/svg_314356.svg') !important;
 }
+
+
+.dropdown-content {
+  min-width: 300px !important;
+}
