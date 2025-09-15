@@ -3,7 +3,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
     $name    = htmlspecialchars(trim($_POST['name']));
     $email   = htmlspecialchars(trim($_POST['email']));
-    $subject = htmlspecialchars(trim($_POST['subject']));
+    $phone   = htmlspecialchars(trim($_POST['phone']));
+    $subject = htmlspecialchars(trim($_POST['location']));
+    $location = htmlspecialchars(trim($_POST['subject']));
+    $date = htmlspecialchars(trim($_POST['time']));
+    $time = htmlspecialchars(trim($_POST['location']));
     $message = htmlspecialchars(trim($_POST['message']));
 
     // Recipient email (change this to your email address)
@@ -22,7 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $body .= "Here are the details:\n";
     $body .= "Name: $name\n";
     $body .= "Email: $email\n";
+    $body .= "Phone: $phone\n";
     $body .= "Subject: $subject\n\n";
+    $body .= "Location: $location\n\n";
+    $body .= "Date: $date\n\n";
+    $body .= "Time: $time\n\n";
     $body .= "Message:\n$message\n";
 
     // Headers

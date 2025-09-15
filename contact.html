@@ -74,16 +74,16 @@
                         <div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Your Name" required id="noncompliance">
+                                    <input type="text" placeholder="Your Name" name="name" required id="noncompliance">
                                 </div>
                                 <div class="col-md-6">
                                     <input type="email" name="email" placeholder="Your Email" required id="email">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="tel" placeholder="Your Phone" id="phone">
+                                    <input type="tel" name="Phone" placeholder="Your Phone" id="phone">
                                 </div>
                                 <div class="col-md-6">
-                                    <select required>
+                                    <select required name="subject" id="subject">
                                         <option value="" disabled selected>Select Service</option>
                                         <option value="tax-settlement">CRA Tax Settlement/Relief</option>
                                         <option value="bookkeeping">Bookkeeping Services</option>
@@ -93,7 +93,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="" id="" required>
+                                    <select name="" id="" required name="location" id="location">
                                         <option value="" disabled selected>Select Your Provience/Territory *</option>
                                         <option value="Alberta">Alberta</option>
                                         <option value="British Columbia">British Columbia</option>
@@ -113,13 +113,13 @@
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="date" name="date" id="" placeholder="Select Date">
+                                    <input type="date" name="date" id="date" placeholder="Select Date">
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="time" name="time" id="" placeholder="Select Time Slot">
+                                    <input type="time" name="time" id="time" placeholder="Select Time Slot">
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea placeholder="How can we help you?" required id="message"></textarea>
+                                    <textarea placeholder="How can we help you?" name="message" required id="message"></textarea>
                                 </div>
                             </div>
                         </div>
