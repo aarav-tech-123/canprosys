@@ -76,3 +76,35 @@ for(var i=0; i<3; i++){
 }
 
 
+
+
+
+// console.log(a)
+// console.log(b);
+
+// // var a = 10;
+
+// printB()
+
+// const b = 10;
+
+// function printB () {
+//     console.log(b)
+// }
+
+
+
+// for (let i=0; i<3; i++){
+//     console.log(i)
+// }
+
+// 0,1,2
+
+// for(var i=0; i<3; i++){
+//     console.log(i)
+// }
+
+
+
+
+
