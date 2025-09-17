@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars(trim($_POST['message']));
 
     // Recipient email (change this to your email address)
-    $to = "abhishekranjansrivastava19@gmail.com";
+    $to = "support@canprosys.com";
 
     // Validate email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
