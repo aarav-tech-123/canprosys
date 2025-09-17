@@ -1,50 +1,45 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect and sanitize form data
-    $name    = htmlspecialchars(trim($_POST['name']));
-    $email   = htmlspecialchars(trim($_POST['email']));
-    $phone   = htmlspecialchars(trim($_POST['phone']));
-    $subject = htmlspecialchars(trim($_POST['location']));
-    $location = htmlspecialchars(trim($_POST['subject']));
-    $date = htmlspecialchars(trim($_POST['time']));
-    $time = htmlspecialchars(trim($_POST['location']));
-    $message = htmlspecialchars(trim($_POST['message']));
+    $name     = htmlspecialchars($_POST['name']);
+    $email    = htmlspecialchars($_POST['email']);
+    $phone    = htmlspecialchars($_POST['Phone']);
+    $subject  = htmlspecialchars($_POST['subject']);
+    $location = htmlspecialchars($_POST['location']);
+    $date     = htmlspecialchars($_POST['date']);
+    $time     = htmlspecialchars($_POST['time']);
+    $message  = htmlspecialchars($_POST['message']);
 
-    // Recipient email (change this to your email address)
-    $to = "support@canprosys.com";
+    // Recipient email (your Hostinger email)
+    $to = "abhishekranjansrivastava19@gmail.com";
 
-    // Validate email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Invalid email address.");
-    }
-
-    // Email subject
-    $mail_subject = "New Contact Form Submission: " . $subject;
+    // Subject line
+    $mail_subject = "New Contact Request: " . $subject;
 
     // Email body
-    $body  = "You have received a new message from your website contact form.\n\n";
-    $body .= "Here are the details:\n";
-    $body .= "Name: $name\n";
-    $body .= "Email: $email\n";
-    $body .= "Phone: $phone\n";
-    $body .= "Subject: $subject\n\n";
-    $body .= "Location: $location\n\n";
-    $body .= "Date: $date\n\n";
-    $body .= "Time: $time\n\n";
-    $body .= "Message:\n$message\n";
+    $body = "
+        <h2>New Contact Request</h2>
+        <p><strong>Name:</strong> {$name}</p>
+        <p><strong>Email:</strong> {$email}</p>
+        <p><strong>Phone:</strong> {$phone}</p>
+        <p><strong>Service:</strong> {$subject}</p>
+        <p><strong>Location:</strong> {$location}</p>
+        <p><strong>Date:</strong> {$date}</p>
+        <p><strong>Time:</strong> {$time}</p>
+        <p><strong>Message:</strong><br>{$message}</p>
+    ";
 
     // Headers
-    $headers  = "From: $name <$email>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
+    $headers  = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-    // Send email
+    // IMPORTANT: Use your Hostinger email as sender
+    $headers .= "From: Website Contact abhishekranjansrivastava19@gmail.com" . "\r\n";
+    $headers .= "Reply-To: {$email}" . "\r\n";
+
     if (mail($to, $mail_subject, $body, $headers)) {
-        echo "Your message has been sent successfully!";
+        echo "success";
     } else {
-        echo "Sorry, something went wrong. Please try again later.";
+        echo "failed";
     }
-} else {
-    echo "Invalid request.";
 }
 ?>
