@@ -1,6 +1,19 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect form fields safely
+    // 1. reCAPTCHA Validation
+    $secretKey = "6Ld29s0rAAAAALA0SDvjS8cFk9DZ6gXTAwkqx-Yx"; // Replace with your secret key from Google reCAPTCHA
+    $responseKey = $_POST['g-recaptcha-response'];
+    $userIP = $_SERVER['REMOTE_ADDR'];
+
+    $verifyUrl = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
+    $response = file_get_contents($verifyUrl);
+    $responseKeys = json_decode($response, true);
+
+    if (!$responseKeys["success"]) {
+        die("Verification failed. Please go back and confirm you are not a robot.");
+    }
+
+    // 2. Collect Form Data
     $name     = htmlspecialchars($_POST['name']);
     $email    = htmlspecialchars($_POST['email']);
     $phone    = htmlspecialchars($_POST['Phone']);
@@ -10,35 +23,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $time     = htmlspecialchars($_POST['time']);
     $message  = htmlspecialchars($_POST['message']);
 
-    // Your recipient email (must be on same domain for Hostinger mail())
-    $to = "support@canprosys.com";  // <-- change this to your email
-
-    // Subject of email
-    $mail_subject = "New Contact Request: $subject";
-
-    // Email body
-    $body  = "You have received a new contact request:\n\n";
-    $body .= "Name: $name\n";
-    $body .= "Email: $email\n";
-    $body .= "Phone: $phone\n";
-    $body .= "Service: $subject\n";
-    $body .= "Location: $location\n";
-    $body .= "Preferred Date: $date\n";
-    $body .= "Preferred Time: $time\n";
-    $body .= "Message:\n$message\n";
-
-    // Email headers
-    $headers  = "From: $name <$email>\r\n";
+    // 3. Prepare Email
+    $to      = "support@canprosys.com"; // Replace with your email
+    $mailSubject = "New Contact Form Submission: $subject";
+    $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-    // Send mail
-    if (mail($to, $mail_subject, $body, $headers)) {
-        echo "success";
+    $mailBody = "
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> $name</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Phone:</strong> $phone</p>
+        <p><strong>Service Requested:</strong> $subject</p>
+        <p><strong>Location:</strong> $location</p>
+        <p><strong>Date:</strong> $date</p>
+        <p><strong>Time:</strong> $time</p>
+        <p><strong>Message:</strong><br>$message</p>
+    ";
+
+    // 4. Send Email
+    if (mail($to, $mailSubject, $mailBody, $headers)) {
+        echo "Thank you, your request has been submitted successfully!";
     } else {
-        echo "error";
+        echo "Sorry, something went wrong. Please try again.";
     }
 } else {
-    echo "invalid";
+    echo "Invalid Request.";
 }
 ?>
