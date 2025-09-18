@@ -328,21 +328,21 @@
             <div class="col-md-8">
                 <div class="contact-form">
                     <h4>Send Us a Message</h4>
-                    <form id="taxContactForm">
+                    <!-- <form id="taxContactForm" action="send-mail.php" method="POST">
                         <div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Your Name *" required>
+                                    <input type="text" placeholder="Your Name" name="name" required id="name">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email" placeholder="Your Email *" required>
+                                    <input type="email" name="email" placeholder="Your Email" required id="email">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="tel" placeholder="Your Phone">
+                                    <input type="tel" name="Phone" placeholder="Your Phone" id="phone">
                                 </div>
                                 <div class="col-md-6">
-                                    <select required>
-                                        <option value="" disabled selected>Select Service *</option>
+                                    <select required name="subject" id="subject">
+                                        <option value="" disabled selected>Select Service</option>
                                         <option value="tax-settlement">CRA Tax Settlement/Relief</option>
                                         <option value="bookkeeping">Bookkeeping Services</option>
                                         <option value="tax-preparation">Tax Preparation & Filing</option>
@@ -350,9 +350,8 @@
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
-
                                 <div class="col-md-6">
-                                    <select name="" id="" required>
+                                    <select name="" id="" required name="location" id="location">
                                         <option value="" disabled selected>Select Your Provience/Territory *</option>
                                         <option value="Alberta">Alberta</option>
                                         <option value="British Columbia">British Columbia</option>
@@ -364,24 +363,92 @@
                                         <option value="Prince Edward Island">Prince Edward Island</option>
                                         <option value="Quebec">Quebec</option>
                                         <option value="saskatchewan">saskatchewan</option>
-                                        <option value="" disabled style="font-weight: bold;">--Territories--</option>
+                                        <option value="" disabled style="font-weight: bold; font-size: 1.3rem;">
+                                            --Territories--</option>
                                         <option value="Northwest Territories">Northwest Territories</option>
-                                        <option value="nunavut">nunavut</option>
+                                        <option value="nunavut">Nunavut</option>
                                         <option value="Yukon">Yukon</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="date" name="date" id="" placeholder="Select Date">
+                                    <input type="date" name="date" id="date" placeholder="Select Date">
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="time" name="time" id="" placeholder="Select Time Slot">
+                                    <input type="time" name="time" id="time" placeholder="Select Time Slot">
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea placeholder="How can we help you?" required></textarea>
+                                    <textarea placeholder="How can we help you?" name="message" required
+                                        id="message"></textarea>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn">Submit Request</button>
+                        <div class="g-recaptcha" data-sitekey="6Ld29s0rAAAAAIJRqIWq1rFnd_48pkn2HOW8t4S9"></div>
+                        <button type="submit" class="btn mt-3">Submit Request</button>
+                    </form> -->
+                    <form id="taxContactForm" action="send-mail.php" method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Your Name" name="name" required id="name">
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="email" name="email" placeholder="Your Email" required id="email">
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="tel" name="phone" placeholder="Your Phone" id="phone">
+                            </div>
+
+                            <div class="col-md-6">
+                                <select name="subject" id="subject" required>
+                                    <option value="" disabled selected>Select Service</option>
+                                    <option value="tax-settlement">CRA Tax Settlement/Relief</option>
+                                    <option value="bookkeeping">Bookkeeping Services</option>
+                                    <option value="tax-preparation">Tax Preparation & Filing</option>
+                                    <option value="accounting">Accounting Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <select name="location" id="location" required>
+                                    <option value="" disabled selected>Select Your Province/Territory *</option>
+                                    <option value="Alberta">Alberta</option>
+                                    <option value="British Columbia">British Columbia</option>
+                                    <option value="Manitoba">Manitoba</option>
+                                    <option value="New Brunswick">New Brunswick</option>
+                                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                    <option value="Nova Scotia">Nova Scotia</option>
+                                    <option value="Ontario">Ontario</option>
+                                    <option value="Prince Edward Island">Prince Edward Island</option>
+                                    <option value="Quebec">Quebec</option>
+                                    <option value="Saskatchewan">Saskatchewan</option>
+                                    <option value="" disabled style="font-weight: bold; font-size: 1.1rem;">
+                                        --Territories--</option>
+                                    <option value="Northwest Territories">Northwest Territories</option>
+                                    <option value="Nunavut">Nunavut</option>
+                                    <option value="Yukon">Yukon</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input type="date" name="date" id="date" placeholder="Select Date">
+                            </div>
+
+                            <div class="col-md-3">
+                                <input type="time" name="time" id="time" placeholder="Select Time Slot">
+                            </div>
+
+                            <div class="col-md-12">
+                                <textarea placeholder="How can we help you?" name="message" required
+                                    id="message"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- reCAPTCHA v2 checkbox (your site key shown below) -->
+                        <div class="g-recaptcha" data-sitekey="6Ld29s0rAAAAAIJRqIWq1rFnd_48pkn2HOW8t4S9"></div>
+
+                        <button type="submit" class="btn mt-3">Submit Request</button>
                     </form>
                     <div class="row mt-4 mb-0">
                         <div class="col-12 p-0">
@@ -484,6 +551,25 @@
 
     <a href="https://wa.me/+14379936455" class="btn btn-lg-square back-to-top"><i class="fab fa-whatsapp fa-2x"></i></a>
     <!-- ?text=Hello%2C%20I%20am%20interested%20in%20your%20software%20services -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
+        document.getElementById('taxContactForm').addEventListener('submit', function (e) {
+            // grecaptcha must exist and have a response
+            if (typeof grecaptcha === 'undefined') {
+                e.preventDefault();
+                alert('reCAPTCHA failed to load. Please refresh the page.');
+                return;
+            }
+            var resp = grecaptcha.getResponse();
+            if (!resp || resp.length === 0) {
+                e.preventDefault();
+                alert('Please complete the reCAPTCHA.');
+                return;
+            }
+            // otherwise allow submit
+        });
+    </script>
     <script>
         // Mobile Menu Toggle
         const menuBtn = document.querySelector('.mobile-menu-btn');
@@ -502,14 +588,14 @@
         });
 
         // Form submission
-        const contactForm = document.getElementById('taxContactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('Thank you for your inquiry. We will contact you shortly for your consultation.');
-                contactForm.reset();
-            });
-        }
+        // const contactForm = document.getElementById('taxContactForm');
+        // if (contactForm) {
+        //     contactForm.addEventListener('submit', function (e) {
+        //         e.preventDefault();
+        //         alert('Thank you for your inquiry. We will contact you shortly for your consultation.');
+        //         contactForm.reset();
+        //     });
+        // }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

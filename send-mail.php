@@ -4,13 +4,12 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
-require 'PHPMailer/Exception.php'; // Adjust path if needed
+require 'PHPMailer/Exception.php';
 
-$mail = new PHPMailer(true);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $secretKey = "6Ld29s0rAAAAALA0SDvjS8cFk9DZ6gXTAwkqx-Yx"; // Replace with your secret key from Google reCAPTCHA
-    $responseKey = $_POST['g-recaptcha-response'];
+    // 1. reCAPTCHA verification
+    $secretKey = "6Ld29s0rAAAAALA0SDvjS8cFk9DZ6gXTAwkqx-Yx"; // <-- Replace with your real secret key
+    $responseKey = $_POST['g-recaptcha-response'] ?? '';
     $userIP = $_SERVER['REMOTE_ADDR'];
 
     $verifyUrl = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
@@ -18,63 +17,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $responseKeys = json_decode($response, true);
 
     if (!$responseKeys["success"]) {
-        die("Verification failed. Please go back and confirm you are not a robot.");
+        die("❌ Verification failed. Please check the reCAPTCHA.");
     }
-    // Collect form fields safely
-    $name     = htmlspecialchars($_POST['name']);
-    $email    = htmlspecialchars($_POST['email']);
-    $phone    = htmlspecialchars($_POST['Phone']);
-    $subject  = htmlspecialchars($_POST['subject']);
-    $location = htmlspecialchars($_POST['location']);
-    $date     = htmlspecialchars($_POST['date']);
-    $time     = htmlspecialchars($_POST['time']);
-    $message  = htmlspecialchars($_POST['message']);
 
+    // 2. Collect form data
+    $name     = htmlspecialchars($_POST['name'] ?? '');
+    $email    = htmlspecialchars($_POST['email'] ?? '');
+    $phone    = htmlspecialchars($_POST['Phone'] ?? '');
+    $subject  = htmlspecialchars($_POST['subject'] ?? '');
+    $location = htmlspecialchars($_POST['location'] ?? '');
+    $date     = htmlspecialchars($_POST['date'] ?? '');
+    $time     = htmlspecialchars($_POST['time'] ?? '');
+    $message  = htmlspecialchars($_POST['message'] ?? '');
 
-    // Your recipient email (must be on same domain for Hostinger mail())
-    $to = "support@canprosys.com";  // <-- change this to your email
+    // 3. Setup PHPMailer
+    $mail = new PHPMailer(true);
 
-    // Subject of email
-    $mail_subject = "New Contact Request: $subject";
-
-    // Email body
-    $body  = "You have received a new contact request:\n\n";
-    $body .= "Name: $name\n";
-    $body .= "Email: $email\n";
-    $body .= "Phone: $phone\n";
-    $body .= "Service: $subject\n";
-    $body .= "Location: $location\n";
-    $body .= "Preferred Date: $date\n";
-    $body .= "Preferred Time: $time\n";
-    $body .= "Message:\n$message\n";
-
-        try {
-        // Server settings
+    try {
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';          // SMTP server
+        $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'aditya.gupin1950@gmail.com';    // Your SMTP username
-        $mail->Password   = 'jrehsbhvkmjoajgb';       // Your SMTP password or app password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                     // Encryption (tls or ssl)
-        $mail->Port       = 587;                        // SMTP port
+        $mail->Username   = 'aditya.gupin1950@gmail.com'; 
+        $mail->Password   = 'jrehsbhvkmjoajgb'; // Gmail App Password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
 
-        // Recipients
-        $mail->setFrom('aditya.gupin1950@gmail.com', $name);
-        $mail->addAddress($to, 'Recipient Name'); // Add a recipient
+        $mail->setFrom('aditya.gupin1950@gmail.com', 'Website Contact Form');
+        $mail->addAddress('support@canprosys.com', 'Support Team');
 
-        // Content
+        // 4. Email content
         $mail->isHTML(true);
-        $mail->Subject = $mail_subject;
-        $mail->Body    = $body;
-        $mail->AltBody = 'This is a test email sent locally with PHPMailer!';
+        $mail->Subject = "New Contact Form Submission: $subject";
+        $mail->Body    = "
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> $name</p>
+            <p><strong>Email:</strong> $email</p>
+            <p><strong>Phone:</strong> $phone</p>
+            <p><strong>Service Requested:</strong> $subject</p>
+            <p><strong>Location:</strong> $location</p>
+            <p><strong>Date:</strong> $date</p>
+            <p><strong>Time:</strong> $time</p>
+            <p><strong>Message:</strong><br>$message</p>
+        ";
+        $mail->AltBody = "Name: $name\nEmail: $email\nPhone: $phone\nService: $subject\nLocation: $location\nDate: $date\nTime: $time\nMessage: $message";
 
         $mail->send();
-        echo "Message has been sent successfully";
+        echo "✅ Your message has been sent successfully!";
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        echo "❌ Message could not be sent. Error: {$mail->ErrorInfo}";
     }
-
 } else {
-    echo "invalid";
+    echo "❌ Invalid Request.";
 }
-
+?>
