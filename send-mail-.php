@@ -25,7 +25,7 @@ try {
     // Content
     $mail->isHTML(true);
     $mail->Subject = 'Test Email from PHPMailer';
-    $mail->Body    = '<b>This is a test email sent locally with PHPMailer!</b>';
+    $mail->Body    = '<b>This is a test email locally with PHPMailer!</b>';
     $mail->AltBody = 'This is a test email sent locally with PHPMailer!';
 
     $mail->send();
