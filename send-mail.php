@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $time     = htmlspecialchars($_POST['time']);
     $message  = htmlspecialchars($_POST['message']);
 
+
     // Your recipient email (must be on same domain for Hostinger mail())
     $to = "support@canprosys.com";  // <-- change this to your email
 
@@ -72,8 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
-
-
 
 } else {
     echo "invalid";
