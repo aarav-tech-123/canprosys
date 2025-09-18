@@ -1,54 +1,35 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // 1. reCAPTCHA Validation
-    $secretKey = "6Ld29s0rAAAAALA0SDvjS8cFk9DZ6gXTAwkqx-Yx"; // Replace with your secret key from Google reCAPTCHA
-    $responseKey = $_POST['g-recaptcha-response'];
-    $userIP = $_SERVER['REMOTE_ADDR'];
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    $verifyUrl = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
-    $response = file_get_contents($verifyUrl);
-    $responseKeys = json_decode($response, true);
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+require 'PHPMailer/Exception.php'; // Adjust path if needed
 
-    if (!$responseKeys["success"]) {
-        die("Verification failed. Please go back and confirm you are not a robot.");
-    }
+$mail = new PHPMailer(true);
 
-    // 2. Collect Form Data
-    $name     = htmlspecialchars($_POST['name']);
-    $email    = htmlspecialchars($_POST['email']);
-    $phone    = htmlspecialchars($_POST['Phone']);
-    $subject  = htmlspecialchars($_POST['subject']);
-    $location = htmlspecialchars($_POST['location']);
-    $date     = htmlspecialchars($_POST['date']);
-    $time     = htmlspecialchars($_POST['time']);
-    $message  = htmlspecialchars($_POST['message']);
+try {
+    // Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';          // SMTP server
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'aditya.gupin1950@gmail.com';    // Your SMTP username
+    $mail->Password   = 'jrehsbhvkmjoajgb';       // Your SMTP password or app password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                     // Encryption (tls or ssl)
+    $mail->Port       = 587;                        // SMTP port
 
-    // 3. Prepare Email
-    $to      = "support@canprosys.com"; // Replace with your email
-    $mailSubject = "New Contact Form Submission: $subject";
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    // Recipients
+    $mail->setFrom('aditya.gupin1950@gmail.com', 'Your Name');
+    $mail->addAddress('support@canprosys.com', 'Recipient Name'); // Add a recipient
 
-    $mailBody = "
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> $name</p>
-        <p><strong>Email:</strong> $email</p>
-        <p><strong>Phone:</strong> $phone</p>
-        <p><strong>Service Requested:</strong> $subject</p>
-        <p><strong>Location:</strong> $location</p>
-        <p><strong>Date:</strong> $date</p>
-        <p><strong>Time:</strong> $time</p>
-        <p><strong>Message:</strong><br>$message</p>
-    ";
+    // Content
+    $mail->isHTML(true);
+    $mail->Subject = 'Test Email from PHPMailer';
+    $mail->Body    = '<b>This is a test email sent locally with PHPMailer!</b>';
+    $mail->AltBody = 'This is a test email sent locally with PHPMailer!';
 
-    // 4. Send Email
-    if (mail($to, $mailSubject, $mailBody, $headers)) {
-        echo "Thank you, your request has been submitted successfully!";
-    } else {
-        echo "Sorry, something went wrong. Please try again.";
-    }
-} else {
-    echo "Invalid Request.";
+    $mail->send();
+    echo "Message has been sent successfully";
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-?>
