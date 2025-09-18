@@ -32,29 +32,32 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo-container">
-                <div class="logo">
-                    <img src="./assets/logo.jpg" alt="Canprosys" class="logo-img" style="height: 100%; width: 100%;">
+            <a href="/" style="text-decoration: none;">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="./assets/logo.jpg" alt="Canprosys" class="logo-img"
+                            style="height: 100%; width: 100%;">
+                    </div>
+                    <div class="logo-text">Can<span>pro</span>sys</div>
                 </div>
-                <div class="logo-text">Can<span>pro</span>sys</div>
-            </div>
+            </a>
             <div class="mobile-menu-btn">☰</div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li class="dropdown">
-                        <a href="#services" class="active">Services <i class="fas fa-chevron-down"></i></a>
+                        <a href="index.html#services" class="active">Services <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
-                            <a href="tax_settlement_relief_program_with_cra.html">Tax Rectification/Relief program with
+                            <a href="tax-settlement-relief-program-with-cra.html">Tax Rectification/Relief program with
                                 CRA
                             </a>
                             <!-- <a href="bookkeeping.html">Bookkeeping</a> -->
-                            <a href="finance_and_accounting.html">Finance & Accounting Services</a>
-                            <a href="financial_aid_service.html">Financial Aid and Government Grant Programs</a>
-                            <a href="business_funding_help.html">Business Funding Help</a>
-                            <a href="web_and_cyber_security.html">Web & Cyber Security</a>
-                            <a href="networking_data_cabling.html">Networking Data Cabling</a>
+                            <a href="finance-and-accounting.html">Finance & Accounting Services</a>
+                            <a href="financial-aid-service.html">Financial Aid and Government Grant Programs</a>
+                            <a href="business-funding-help.html">Business Funding Help</a>
+                            <a href="web-and-cyber-security">Web & Cyber Security</a>
+                            <a href="networking-data-cabling">Networking Data Cabling</a>
                         </div>
                     </li>
                     <!-- <li><a href="blogs.html">Blogs</a></li> -->
@@ -96,10 +99,10 @@
                     <p style="color: #666;">
                         Additionally, we can assist in assessing your eligibility for multiple small business financing
                         options, including government grants and business loans tailored to your specific needs. Don’t
-                        hesitate to reach out for a free consultation.
+                        hesitate to reach out for a consultation.
                     </p>
                     <h5 style="color: #1a4f8c;">Empowering Your Business Success</h5>
-                    <p style="color: #666;">Contact us for free initial consultation: Appointment needed. Simply fill
+                    <p style="color: #666;">Contact us for initial consultation: Appointment needed. Simply fill
                         out the form below or email us at <a href="mailto:info@canprosys.com">info@canprosys.com</a> to
                         explore how we can support your business ambitions.</p>
                 </div>
@@ -124,22 +127,22 @@
                 <div class="col-md-3 footer-links">
                     <h3>Services</h3>
                     <ul style="list-style: circle;">
-                        <li><a href="tax_settlement_relief_program_with_cra.html">Tax Rectification/Relief program with
+                        <li><a href="tax-settlement-relief-program-with-cra.html">Tax Rectification/Relief program with
                                 CRA</a></li>
-                        <li><a href="finance_and_accounting.html">Finance & Accounting</a></li>
-                        <li><a href="financial_aid.html">Financial Aid and Government Grant Programs</a></li>
-                        <li><a href="business_funding_help.html">Business Funding Help</a></li>
-                        <li><a href="networking_data_cabling.html">Data Networking & Cabling</a></li>
-                        <li><a href="web_and_cyber_security.html">Web & Cyber Security Services</a></li>
+                        <li><a href="finance-and-accounting.html">Finance & Accounting</a></li>
+                        <li><a href="financial-aid.html">Financial Aid and Government Grant Programs</a></li>
+                        <li><a href="business-funding-help.html">Business Funding Help</a></li>
+                        <li><a href="networking-data-cabling.html">Data Networking & Cabling</a></li>
+                        <li><a href="web-and-cyber-security.html">Web & Cyber Security Services</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="index.html#services">Services</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="index.html#process">Our Process</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -181,7 +184,7 @@
         if (contactForm) {
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                alert('Thank you for your inquiry. We will contact you shortly for your free consultation.');
+                alert('Thank you for your inquiry. We will contact you shortly for your consultation.');
                 contactForm.reset();
             });
         }
