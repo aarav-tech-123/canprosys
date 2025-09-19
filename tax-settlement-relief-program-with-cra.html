@@ -24,6 +24,144 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        #whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: #fff;
+            font-size: 24px;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: pulse 1.5s infinite;
+        }
+
+        #whatsapp-popup {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 350px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        #whatsapp-popup.show {
+            transform: translateY(0);
+            opacity: 1;
+            animation: bounceIn 0.6s;
+        }
+
+        #whatsapp-popup .popup-header {
+            background: linear-gradient(135deg, #1a4f8c, #205da3);
+            color: #fff;
+            padding: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #whatsapp-popup .popup-body {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #whatsapp-popup .popup-footer {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            background: #fafafa;
+        }
+
+        #whatsapp-popup .popup-footer button {
+            border: none;
+            background: #1a4f8c;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+
+        #whatsapp-popup .popup-footer button:hover {
+            background: #2161a9;
+        }
+
+        #whatsapp-popup .wa-link {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        #whatsapp-popup .wa-link:hover {
+            background: #e0e0e0;
+            transform: translateX(5px);
+        }
+
+        #whatsapp-popup .popup-close {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+
+            80% {
+                transform: scale(0.95);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -471,13 +609,25 @@
                 </div> -->
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Canprosys Consultants Inc. | All rights reserved. | <a href="privacy-policy.html" style="text-decoration: none; color: #ccc;">Privacy Policy</a></p>
+                <p>&copy; 2025 Canprosys Consultants Inc. | All rights reserved. | <a href="privacy-policy.html"
+                        style="text-decoration: none; color: #ccc;">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/+12898013162" class="btn btn-lg-square back-to-top"><i
-            class="fab fa-whatsapp fa-2x"></i></a>
+    <div id="whatsapp-button" onclick="togglePopup()">
+        <i class="fab fa-whatsapp fa-xl"></i>
+    </div>
+    <div id="whatsapp-popup">
+        <div class="popup-header">Chat with us on WhatsApp</div>
+        <div class="popup-body">
+            <a href="https://wa.me/+12898013162" target="_blank" class="wa-link">For: Tax Rectification/Relief
+                program</a>
+            <a href="https://wa.me/+14379936455" target="_blank" class="wa-link">For: Finance & Accouncting</a>
+        </div>
+        <div class="popup-close" onclick="togglePopup()">✖</div>
+    </div>
+
     <script>
         // Mobile Menu Toggle
         const menuBtn = document.querySelector('.mobile-menu-btn');
@@ -535,7 +685,19 @@
             }
         });
     </script>
-    <script src="./index.js"></script>
+    <script>
+        function togglePopup() {
+            var popup = document.getElementById("whatsapp-popup");
+            console.log("abhishek")
+            if (popup.classList.contains("show")) {
+                popup.classList.remove("show");
+                setTimeout(() => popup.style.display = "none", 400);
+            } else {
+                popup.style.display = "block";
+                setTimeout(() => popup.classList.add("show"), 10);
+            }
+        }
+    </script>
 </body>
 
 </html>
