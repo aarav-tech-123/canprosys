@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $responseKeys = json_decode($response, true);
 
     if (!$responseKeys["success"]) {
-        die("❌ Verification failed. Please check the reCAPTCHA.");
+        die("Verification failed. Please check the reCAPTCHA.");
     }
 
     // 2. Collect form data
@@ -62,11 +62,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->AltBody = "Name: $name\nEmail: $email\nPhone: $phone\nService: $subject\nLocation: $location\nDate: $date\nTime: $time\nMessage: $message";
 
         $mail->send();
-        echo "✅ Your message has been sent successfully!";
+        // echo "Your message has been sent successfully!";
+
+        header("Location: thankyou.html");
+        exit();
+
     } catch (Exception $e) {
-        echo "❌ Message could not be sent. Error: {$mail->ErrorInfo}";
+        echo "Message could not be sent. Error: {$mail->ErrorInfo}";
     }
 } else {
-    echo "❌ Invalid Request.";
+    echo "Invalid Request.";
 }
 ?>
