@@ -36,6 +36,144 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
     <meta name="msvalidate.01" content="AEAB61E6F580785EE640024D4C6A539D" />
+    <style>
+        #whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: #fff;
+            font-size: 24px;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: pulse 1.5s infinite;
+        }
+
+        #whatsapp-popup {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 280px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        #whatsapp-popup.show {
+            transform: translateY(0);
+            opacity: 1;
+            animation: bounceIn 0.6s;
+        }
+
+        #whatsapp-popup .popup-header {
+            background: linear-gradient(135deg, #1a4f8c, #205da3);
+            color: #fff;
+            padding: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #whatsapp-popup .popup-body {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #whatsapp-popup .popup-footer {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            background: #fafafa;
+        }
+
+        #whatsapp-popup .popup-footer button {
+            border: none;
+            background: #1a4f8c;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+
+        #whatsapp-popup .popup-footer button:hover {
+            background: #2161a9;
+        }
+
+        #whatsapp-popup .wa-link {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        #whatsapp-popup .wa-link:hover {
+            background: #e0e0e0;
+            transform: translateX(5px);
+        }
+
+        #whatsapp-popup .popup-close {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+
+            80% {
+                transform: scale(0.95);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -115,7 +253,7 @@
                         <img src="./assets/tax_settlement.png" alt="" style="width: 100%;">
                     </div>
                     <div class="service-content">
-                        <h3>Tax Rectification/Relief program (from CRA Tax Obligations)</h3>
+                        <h3>Tax Rectification/Relief program (From CRA Tax Obligations)</h3>
                         <p>We can negotiate with the Canada Revenue Agency on your behalf in order to reduce or pay off
                             the tax Obligations. Our professionals take you through relief programs to relieve financial
                             burden.</p>
@@ -518,7 +656,7 @@
                         <li><a href="finance-and-accounting.html">Finance & Accounting</a></li>
                         <li><a href="financial-aid-service.html">Financial Aid and Government Grant Programs</a></li>
                         <li><a href="business-funding-help.html">Business Funding Help</a></li>
-                        <li><a href="networking-data-cabling.html">Data Networking & Cabling</a></li>
+                        <li><a href="networking-and-data-cabling.html">Data Networking & Cabling</a></li>
                         <li><a href="web-and-cyber-security.html">Web & Cyber Security Services</a></li>
                     </ul>
                 </div>
@@ -549,10 +687,25 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/+14379936455" class="btn btn-lg-square back-to-top"><i class="fab fa-whatsapp fa-2x"></i></a>
-    <!-- ?text=Hello%2C%20I%20am%20interested%20in%20your%20software%20services -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <div id="whatsapp-button" onclick="togglePopup()">
+        <i class="fab fa-whatsapp fa-xl"></i>
+    </div>
+    <div id="whatsapp-popup">
+        <div class="popup-header">Chat with us on WhatsApp</div>
+        <div class="popup-body">
+            <a href="https://wa.me/+12898013162" target="_blank" class="wa-link">Tax Rectification/Relief program</a>
+            <a href="https://wa.me/+14379936455" target="_blank" class="wa-link">Finance & Accouncting</a>
+        </div>
+        <!-- <div class="popup-footer">
+            <button onclick="openFAQ()"> FAQs</button>
+            <button onclick="setReminder()"> Remind Me Later</button>
+        </div> -->
+        <div class="popup-close" onclick="togglePopup()">✖</div>
+    </div>
 
+    <!-- <a href="https://wa.me/+14379936455" class="btn btn-lg-square back-to-top"><i class="fab fa-whatsapp fa-2x"></i></a> -->
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
         document.getElementById('taxContactForm').addEventListener('submit', function (e) {
             // grecaptcha must exist and have a response
@@ -584,20 +737,9 @@
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('active');
-            });        
+            });
         });
 
-        // Form submission
-        // const contactForm = document.getElementById('taxContactForm');
-        // if (contactForm) {
-        //     contactForm.addEventListener('submit', function (e) {
-        //         e.preventDefault();
-        //         alert('Thank you for your inquiry. We will contact you shortly for your consultation.');
-        //         contactForm.reset();
-        //     });
-        // }
-
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -627,7 +769,30 @@
             }
         });
     </script>
-    <script src="./index.js"></script>
+    <script>
+        function togglePopup() {
+            var popup = document.getElementById("whatsapp-popup");
+            console.log("abhishek")
+            if (popup.classList.contains("show")) {
+                popup.classList.remove("show");
+                setTimeout(() => popup.style.display = "none", 400);
+            } else {
+                popup.style.display = "block";
+                setTimeout(() => popup.classList.add("show"), 10);
+            }
+        }
+
+        function openFAQ() {
+            alert("Redirecting to FAQs page...");
+            // Replace with actual FAQ page URL
+            window.location.href = "/faqs";
+        }
+
+        function setReminder() {
+            alert("We will remind you later! (This can be enhanced with localStorage or push notifications.)");
+        }
+
+    </script>
 </body>
 
 </html>
