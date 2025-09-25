@@ -168,15 +168,11 @@
   </div>
 
   <script>
-    // Check if user has already seen Thank You page in this session
     if (!sessionStorage.getItem("thankyouRedirect")) {
-      // Set session flag
       sessionStorage.setItem("thankyouRedirect", "true");
-
-      // Redirect after 5 seconds
       setTimeout(() => {
         window.location.href = "/";
-      }, 5000);
+      }, 50000);
     }
   </script>
 
