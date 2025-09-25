@@ -31,7 +31,7 @@
       left: 0;
       width: 0;
       height: 0;
-      border-top: 300px solid #e6b800;
+      border-top: 300px solid #1a4f8c;
       border-right: 300px solid transparent;
     }
 
@@ -41,7 +41,7 @@
       right: 0;
       width: 0;
       height: 0;
-      border-bottom: 300px solid #00b386;
+      border-bottom: 300px solid #091a2e;
       border-left: 300px solid transparent;
     }
 
@@ -54,7 +54,7 @@
 
     .check {
       font-size: 50px;
-      color: #00b386;
+      color: #1a4f8c;
       margin-bottom: 15px;
     }
 
@@ -103,13 +103,13 @@
     }
 
     .social-icons a:hover {
-      color: #00b386;
+      color: #1a4f8c;
     }
 
     .btn {
       display: inline-block;
       padding: 10px 20px;
-      background: #00b386;
+      background: #1a4f8c;
       color: white;
       text-decoration: none;
       border-radius: 5px;
@@ -117,7 +117,7 @@
     }
 
     .btn:hover {
-      background: #008060;
+      background: #002f65fb;
     }
 
     @media(max-width: 600px) {
@@ -142,7 +142,8 @@
   <div class="container">
     <div class="check">✔</div>
     <h1>Thank you!</h1>
-    <p>Thank you for contacting Canprosys! We have successfully received your query. One of our representatives will get in touch with you shortly to provide the assistance you need. We
+    <p>Thank you for contacting Canprosys! We have successfully received your query. One of our representatives will get
+      in touch with you shortly to provide the assistance you need. We
       appreciate your interest and look forward to serving you.</p>
 
     <div class="grid">
@@ -150,7 +151,8 @@
       <div class="card">
         <h2>Connect With Us</h2>
         <div class="social-icons">
-          <a href="https://www.facebook.com/p/Canprosys-Consultants-Inc-100075878817251/"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.facebook.com/p/Canprosys-Consultants-Inc-100075878817251/"><i
+              class="fab fa-facebook"></i></a>
           <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
           <!-- <a href="#"><i class="fab fa-pinterest"></i></a> -->
           <a href="https://www.instagram.com/canprosys_tax_bookkeeping/?hl=en"><i class="fab fa-instagram"></i></a>
@@ -164,6 +166,19 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // Check if user has already seen Thank You page in this session
+    if (!sessionStorage.getItem("thankyouRedirect")) {
+      // Set session flag
+      sessionStorage.setItem("thankyouRedirect", "true");
+
+      // Redirect after 5 seconds
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 5000);
+    }
+  </script>
 
 </body>
 
