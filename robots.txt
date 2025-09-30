@@ -1,4 +1,8 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://canprosys.com/sitemap.xml
+# Block junk content.php with query strings
+Disallow: /content.php
+# Block numeric slugs (only if you never use plain numbers as valid pages)
+Disallow: /[0-9]/
+# Block tag and feed pages (WordPress)
+Disallow: /tag/
+Disallow: /feed/
