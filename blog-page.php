@@ -559,7 +559,7 @@
             <a href="/" style="text-decoration: none;">
                 <div class="logo-container">
                     <div class="logo">
-                        <img src="./assets/logo.jpg" alt="Canprosys" class="logo-img"
+                        <img src="https://canprosys.com/assets/logo.jpg" alt="Canprosys" class="logo-img"
                             style="height: 100%; width: 100%;">
                     </div>
                     <div class="logo-text">Can<span>pro</span>sys</div>
@@ -568,25 +568,25 @@
             <div class="mobile-menu-btn">☰</div>
             <nav>
                 <ul>
-                    <li><a href="/" class="active">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="https://canprosys.com/" class="active">Home</a></li>
+                    <li><a href="https://canprosys.com/about.html">About Us</a></li>
                     <li class="dropdown">
                         <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
-                            <a href="tax-settlement-relief-program-with-cra.html">Tax Rectification/Relief program with
+                            <a href="https://canprosys.com/tax-settlement-relief-program-with-cra.html">Tax Rectification/Relief program with
                                 CRA
                             </a>
                             <!-- <a href="bookkeeping.html">Bookkeeping</a> -->
-                            <a href="finance-and-accounting.html">Finance & Accounting Services</a>
-                            <a href="financial-aid-service.html">Financial Aid and Government Grant Programs</a>
-                            <a href="business-funding-help.html">Business Funding Help</a>
-                            <a href="web-and-cyber-security.html">Web & Cyber Security</a>
-                            <a href="networking-and-data-cabling.html">Networking Data Cabling</a>
+                            <a href="https://canprosys.com/finance-and-accounting.html">Finance & Accounting Services</a>
+                            <a href="https://canprosys.com/financial-aid-service.html">Financial Aid and Government Grant Programs</a>
+                            <a href="https://canprosys.com/business-funding-help.html">Business Funding Help</a>
+                            <a href="https://canprosys.com/web-and-cyber-security.html">Web & Cyber Security</a>
+                            <a href="https://canprosys.com/networking-and-data-cabling.html">Networking Data Cabling</a>
                         </div>
                     </li>
-                    <!-- <li><a href="blogs.html">Blogs</a></li> -->
-                    <li><a href="index.html#testimonials">Testimonials</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="https://canprosys.com/blogs.php">Blogs</a></li>
+                    <li><a href="https://canprosys.com/index.html#testimonials">Testimonials</a></li>
+                    <li><a href="https://canprosys.com/contact.html">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -664,7 +664,7 @@
             <div class="cta-content">
                 <h2>Need Professional Tax Help?</h2>
                 <p>Our team of tax experts and former CRA advisors can help you resolve tax issues, reduce penalties, and find financial relief.</p>
-                <a href="contact.html" class="btn-primary">Book Consultation <i class="fas fa-calendar-check"></i></a>
+                <a href="https://canprosys.com/contact.html" class="btn-primary">Book Consultation <i class="fas fa-calendar-check"></i></a>
             </div>
         </div>
     </section>
@@ -689,24 +689,24 @@
                 <div class="col-md-4 footer-links">
                     <h3>Services</h3>
                     <ul style="list-style: circle;">
-                        <li><a href="tax-settlement-relief-program-with-cra.html">Tax Rectification/Relief program with
+                        <li><a href="https://canprosys.com/tax-settlement-relief-program-with-cra.html">Tax Rectification/Relief program with
                                 CRA</a></li>
-                        <li><a href="finance-and-accounting.html">Finance & Accounting</a></li>
-                        <li><a href="financial-aid-service.html">Financial Aid and Government Grant Programs</a></li>
-                        <li><a href="business-funding-help.html">Business Funding Help</a></li>
-                        <li><a href="networking-and-data-cabling.html">Data Networking & Cabling</a></li>
-                        <li><a href="web-and-cyber-security.html">Web & Cyber Security Services</a></li>
+                        <li><a href="https://canprosys.com/finance-and-accounting.html">Finance & Accounting</a></li>
+                        <li><a href="https://canprosys.com/financial-aid-service.html">Financial Aid and Government Grant Programs</a></li>
+                        <li><a href="https://canprosys.com/business-funding-help.html">Business Funding Help</a></li>
+                        <li><a href="https://canprosys.com/networking-and-data-cabling.html">Data Networking & Cabling</a></li>
+                        <li><a href="https://canprosys.com/web-and-cyber-security.html">Web & Cyber Security Services</a></li>
                     </ul>
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-3 footer-links">
                     <h3>Quick Links</h3>
                     <ul style="list-style: circle;">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="https://canprosys.com/">Home</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="https://canprosys.com/about.html">About Us</a></li>
                         <li><a href="#process">Our Process</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://canprosys.com/contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <!-- <div class="col-md-3 footer-links">

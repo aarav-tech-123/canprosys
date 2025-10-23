@@ -516,13 +516,14 @@ if ($result === false) {
                             <a href="networking-and-data-cabling.html">Networking Data Cabling</a>
                         </div>
                     </li>
-                    <!-- <li><a href="blogs.html">Blogs</a></li> -->
+                    <li><a href="blogs.php">Blogs</a></li>
                     <li><a href="index.html#testimonials">Testimonials</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
      <!-- Hero Section -->
         <section class="hero">
             <div class="container hero-content" >
