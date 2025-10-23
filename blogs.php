@@ -537,7 +537,7 @@ if ($result === false) {
                 <h1>Canprosys <span class="highlight">Blog</span></h1>
                 <p>Expert tax advice, financial insights, and CRA updates to help you navigate Canada's complex tax landscape.</p>
                 <div class="hero-buttons">
-                    <a href="contact.html" class="btn-outline">Book Consultation <i class="fas fa-calendar-check"></i></button>
+                    <a href="contact.html" class="btn-outline">Book Consultation <i class="fas fa-calendar-check"></i></a>
                 </div>
             </div>
         </section>
