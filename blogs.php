@@ -500,7 +500,7 @@ if ($result === false) {
             <div class="mobile-menu-btn">☰</div>
             <nav>
                 <ul>
-                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/" >Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li class="dropdown">
                         <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
@@ -516,7 +516,7 @@ if ($result === false) {
                             <a href="networking-and-data-cabling.html">Networking Data Cabling</a>
                         </div>
                     </li>
-                    <li><a href="blogs.php">Blogs</a></li>
+                    <li><a href="blogs.php" class="active">Blogs</a></li>
                     <li><a href="index.html#testimonials">Testimonials</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
@@ -537,8 +537,7 @@ if ($result === false) {
                 <h1>Canprosys <span class="highlight">Blog</span></h1>
                 <p>Expert tax advice, financial insights, and CRA updates to help you navigate Canada's complex tax landscape.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary">Explore Articles <i class="fas fa-arrow-right"></i></button>
-                    <button class="btn-outline">Book Consultation <i class="fas fa-calendar-check"></i></button>
+                    <a href="contact.html" class="btn-outline">Book Consultation <i class="fas fa-calendar-check"></i></button>
                 </div>
             </div>
         </section>
