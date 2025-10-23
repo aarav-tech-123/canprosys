@@ -4,10 +4,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // ✅ Connect to local XAMPP MySQL database
-$servername = "srv1017.hstgr.io";
-$username = "u868210921_OWGYP";
-$password = "pQTZ0sfkdM";
-$dbname = "u868210921_RXjAJ"; // ⚠️ Change this to your actual DB name
+$servername = "srv1445.hstgr.io";
+$username = "u450081634_rRd7c";
+$password = "4mh0ICUE0Z";
+$dbname = "u450081634_XudLt"; // ⚠️ Change this to your actual DB name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -39,7 +39,6 @@ if ($result === false) {
 // $jsonData = json_encode($data);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,10 +46,10 @@ if ($result === false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <title>Explore Our Blog Section | Learn, Apply & Grow with Insights</title>
+    <title>Tax & Financial Insights Blog | Canprosys Consultants Inc.</title>
     <meta name="description"
-        content="Unlock expert articles on marketing, design & technology. Learn what works, apply it & see results. Browse AaravTech Services blogs now and grow smarter today.">
-    <link rel="canonical" href="https://aaravtech.net/blogs.html" />
+        content="Expert tax advice, financial insights, and CRA updates from Canprosys Consultants Inc. Stay informed with our professional tax and accounting blog.">
+    <link rel="canonical" href="https://canprosys.com/blogs.html" />
 
     <!-- ✅ Styles & Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
@@ -63,16 +62,14 @@ if ($result === false) {
     <link href="./css/style.css" rel="stylesheet">
     <style>
         :root {
-            --bs-bg-dark: #0B011C;
-            --bs-light: #F6F6FA;
-            --gradient-bg: linear-gradient(180deg, #05000D 0%, #0B011C 20%, #14072D 45%, #1E0E45 70%, #2C1C6E 100%);
-            --accent: #8A2BE2;
-            --accent-light: #9D4EDD;
-            --gradient-primary: linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%);
-            --gradient-secondary: linear-gradient(135deg, #1E0E45 0%, #2C1C6E 100%);
-            --gradient-card: linear-gradient(145deg, rgba(30, 14, 69, 0.8) 0%, rgba(43, 28, 110, 0.6) 100%);
-            --gradient-text: linear-gradient(90deg, #8A2BE2, #9D4EDD, #B66DF0);
-            --gradient-pricing: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(30, 14, 69, 0.2) 100%);
+            --primary: #1a4f8c;
+            --secondary: #d35400;
+            --accent: #2ecc71;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #6c757d;
+            --light-blue: #e8f4fd;
+            --orange-light: #fef0e6;
         }
         
         * {
@@ -83,8 +80,8 @@ if ($result === false) {
         }
         
         body {
-            background: var(--gradient-bg);
-            color: var(--bs-light);
+            background-color: #ffffff;
+            color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
@@ -94,34 +91,11 @@ if ($result === false) {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding:15px 20px;
         }
 
         /* Header Styles */
-        header {
-            background: linear-gradient(180deg, rgba(11, 1, 28, 0.95) 0%, rgba(11, 1, 28, 0.8) 100%);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.4s ease;
-        }
-        
-        .breadcrumb-item {
-            font-size: .8rem;
-        }
-        
-        .breadcrumb-item a {
-            color: var(--accent-light);
-            text-decoration: none;
-        }
-        
-        .breadcrumb-item.active {
-            color: var(--bs-light);
-        }
+       
         
         /* Hero Section */
         .hero {
@@ -129,9 +103,8 @@ if ($result === false) {
             position: relative;
             overflow: hidden;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(30, 14, 69, 0.1) 0%, transparent 50%),
-                var(--gradient-bg);
+                linear-gradient(135deg, var(--primary) 0%, #2c3e50 100%);
+            color: white;
         }
         
         .hero-content {
@@ -140,57 +113,43 @@ if ($result === false) {
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
+            p{
+                text-align:center;
+            }
         }
         
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(106, 13, 173, 0.1) 100%);
-            color: var(--accent);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
             padding: 10px 22px;
             border-radius: 30px;
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 24px;
-            border: 1px solid rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(138, 43, 226, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(138, 43, 226, 0); }
         }
         
         .hero h1 {
             font-size: 60px;
             margin-bottom: 24px;
-            font-weight: 800;
+            font-weight: 700;
             line-height: 1.1;
             letter-spacing: -1px;
+            color: var(--bs-light);
         }
         
-        .hero h1 .gradient-text {
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            background-size: 200% auto;
-            animation: textShine 3s linear infinite;
-        }
-        
-        @keyframes textShine {
-            to {
-                background-position: 200% center;
-            }
+        .hero h1 .highlight {
+            color: var(--secondary);
         }
         
         .hero p {
             font-size: 20px;
             max-width: 700px;
             margin: 0 auto 40px;
-            color: rgba(246, 246, 250, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 400;
         }
         
@@ -202,7 +161,7 @@ if ($result === false) {
         }
         
         .btn-primary {
-            background: var(--gradient-primary);
+            background: var(--secondary);
             color: white;
             border: none;
             padding: 16px 38px;
@@ -210,43 +169,45 @@ if ($result === false) {
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.3);
             display: flex;
             align-items: center;
             gap: 10px;
             font-size: 16px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
         }
         
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+            box-shadow: 0 6px 20px rgba(211, 84, 0, 0.4);
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 16px 38px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
         }
 
         /* Blog Section */
         .blog-section {
             padding: 100px 0;
             position: relative;
-            background: 
-                radial-gradient(circle at 0% 0%, rgba(138, 43, 226, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(30, 14, 69, 0.1) 0%, transparent 50%),
-                var(--gradient-bg);
+            background: var(--light);
         }
         
         .section-title {
@@ -256,25 +217,23 @@ if ($result === false) {
         
         .section-title h2 {
             font-size: 48px;
-            color: var(--bs-light);
+            color: var(--dark);
             margin-bottom: 16px;
             font-weight: 700;
+            text-align:center;
         }
         
-        .section-title h2 .gradient-text {
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: textShine 3s linear infinite;
+        .section-title h2 .highlight {
+            color: var(--primary);
         }
         
         .section-title p {
-            color: rgba(246, 246, 250, 0.7);
+            color: var(--gray);
             max-width: 700px;
             margin: 0 auto;
             font-size: 18px;
             font-weight: 400;
+            text-align:center;
         }
         
         .blog-grid {
@@ -284,45 +243,27 @@ if ($result === false) {
         }
         
         .blog-card {
-            background: var(--gradient-card);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: white;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
             transition: all 0.4s;
             position: relative;
             overflow: hidden;
             z-index: 1;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             height: 100%;
-        }
-        
-        .blog-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: -1;
         }
         
         .blog-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: transparent;
-        }
-        
-        .blog-card:hover::before {
-            opacity: 0.05;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .blog-image {
             width: 100%;
             height: 220px;
             object-fit: cover;
-            border-radius: 20px 20px 0 0;
+            border-radius: 10px 10px 0 0;
         }
         
         .blog-content {
@@ -335,33 +276,33 @@ if ($result === false) {
             gap: 15px;
             margin-bottom: 15px;
             font-size: 14px;
-            color: rgba(246, 246, 250, 0.7);
+            color: var(--gray);
         }
         
         .blog-meta i {
-            color: var(--accent);
+            color: var(--primary);
             margin-right: 5px;
         }
         
         .blog-title {
             font-size: 20px;
             margin-bottom: 15px;
-            color: var(--bs-light);
+            color: var(--dark);
             font-weight: 600;
             line-height: 1.4;
         }
         
         .blog-excerpt {
-            color: rgba(246, 246, 250, 0.7);
+            color: var(--gray);
             margin-bottom: 20px;
             font-size: 15px;
             line-height: 1.6;
         }
         
         .read-more {
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
             padding: 10px 20px;
             border-radius: 20px;
             font-weight: 500;
@@ -372,9 +313,23 @@ if ($result === false) {
         }
         
         .read-more:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+            background: var(--primary);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(26, 79, 140, 0.2);
+        }
+        
+        .category-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
         }
 
         /* CTA Section */
@@ -384,9 +339,8 @@ if ($result === false) {
             position: relative;
             overflow: hidden;
             background: 
-                radial-gradient(circle at 30% 70%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(30, 14, 69, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, rgba(11, 1, 28, 0.9) 0%, rgba(30, 14, 69, 0.7) 100%);
+                linear-gradient(135deg, var(--primary) 0%, #2c3e50 100%);
+            color: white;
         }
         
         .cta-content {
@@ -399,7 +353,7 @@ if ($result === false) {
         .cta-section h2 {
             font-size: 48px;
             margin-bottom: 24px;
-            color: var(--bs-light);
+            color: white;
             font-weight: 700;
             line-height: 1.2;
         }
@@ -408,10 +362,40 @@ if ($result === false) {
             font-size: 20px;
             max-width: 700px;
             margin: 0 auto 40px;
-            color: rgba(246, 246, 250, 0.8);
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background: #e74c3c;
         }
 
-      
+        
         /* Responsive Design */
         @media (max-width: 1100px) {
             .hero h1 {
@@ -452,7 +436,15 @@ if ($result === false) {
             .blog-grid {
                 grid-template-columns: 1fr;
             }
-
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
         }
         
         @media (max-width: 576px) {
@@ -491,102 +483,71 @@ if ($result === false) {
             style="display:none;visibility:hidden"></iframe>
     </noscript>
 
-    <!-- ✅ Spinner -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
+
 
     <!-- ✅ Header -->
-    <div class="container-fluid header position-relative p-0">
-        <nav class="navbar navbar-expand-lg fixed-top navbar-light px-lg-5 py-3 py-lg-0">
-            <a href="/" class="navbar-brand p-0">
-                <img src="img/company_logo_white.svg" alt="" id="toggleImg" style="transition: all ease .8s;">
-            </a>
-            <button class="navbar-toggler navbar-toggler-white" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="/" class="nav-item nav-link" style="color:var(--bs-white)!important">Home</a>
-                    <a href="about.html" class="nav-item nav-link" style="color:var(--bs-white)!important">About</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                            style="color:var(--bs-white)!important">Services</a>
-                        <div class="dropdown-menu m-0">
-                            <div class="submenu-wrapper">
-                                <a href="#" class="dropdown-item submenu-parent">Digital Marketing</a>
-                                <div class="submenu ">
-                                    <a class="dropdown-item " href="seo-company-in-india.html">SEO</a>
-                                    <a class="dropdown-item" href="social-media-optimization-services.html">SMO/SMM</a>
-                                    <a class="dropdown-item" href="best-ppc-marketing-agency.html">PPC</a>
-                                    <a class="dropdown-item" href="content-marketing-services.html">Content
-                                        Marketing</a>
-                                </div>
-                            </div>
-                            <div class="submenu-wrapper">
-                                <a href="#" class="dropdown-item submenu-parent">Web Development</a>
-                                <div class="submenu ">
-                                    <a class="dropdown-item" href="custom-website-development-services.html">Custom
-                                        Website Development</a>
-                                    <a class="dropdown-item" href="ui-ux-design-services.html">UI/UX Design</a>
-                                    <a class="dropdown-item" href="web-and-mobile-app-development.html">Web/Mobile App
-                                        Development</a>
-                                </div>
-                            </div>
-                            <div class="submenu-wrapper">
-                                <a href="logo-design-services.html" class="dropdown-item">Logo Design</a>
-                            </div>
-                            <div class="submenu-wrapper">
-                                <a href="#" class="dropdown-item submenu-parent">BPO</a>
-                                <div class="submenu ">
-                                    <a class="dropdown-item" href="back-office-support-services.html">Back Office
-                                        Support</a>
-                                    <a class="dropdown-item" href="call-centre-services.html">Call Centre Services</a>
-                                </div>
-                            </div>
-                        </div>
+    <header>
+        <div class="container header-container">
+            <a href="/" style="text-decoration: none;">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="./assets/logo.jpg" alt="Canprosys" class="logo-img"
+                            style="height: 100%; width: 100%;">
                     </div>
-                    <a href="blogs.php" class="nav-item nav-link active"
-                        style="color:var(--bs-white)!important">Blogs</a>
-                    <a href="career.php" class="nav-item nav-link"
-                        style="color:var(--bs-white)!important">Career</a>
-                    <a href="contact.html" class="nav-item nav-link"
-                        style="color:var(--bs-white)!important">Contact</a>
+                    <div class="logo-text">Can<span>pro</span>sys</div>
                 </div>
-                <a href="tel:" class="glass-btn nav-link-btn"
-                    style="margin-right:2rem;font-size:.8rem;padding:.8rem 1.6rem">Let's Talk</a>
-            </div>
-        </nav>
-
-        <!-- Hero Section -->
+            </a>
+            <div class="mobile-menu-btn">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="tax-settlement-relief-program-with-cra.html">Tax Rectification/Relief program with
+                                CRA
+                            </a>
+                            <!-- <a href="bookkeeping.html">Bookkeeping</a> -->
+                            <a href="finance-and-accounting.html">Finance & Accounting Services</a>
+                            <a href="financial-aid-service.html">Financial Aid and Government Grant Programs</a>
+                            <a href="business-funding-help.html">Business Funding Help</a>
+                            <a href="web-and-cyber-security.html">Web & Cyber Security</a>
+                            <a href="networking-and-data-cabling.html">Networking Data Cabling</a>
+                        </div>
+                    </li>
+                    <!-- <li><a href="blogs.html">Blogs</a></li> -->
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+     <!-- Hero Section -->
         <section class="hero">
-            <div class="container hero-content">
+            <div class="container hero-content" >
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Blogs</li>
                 </ol>
                 <div class="hero-badge">
-                    <i class="fas fa-blog"></i> Latest Insights
+                    <i class="fas fa-blog"></i> Tax & Financial Insights
                 </div>
-                <h1 style="color:var(--bs-white)" >Our<span class="gradient-text"> Blogs</span></h1>
-                <p>A place where new ideas meet practical insights. Discover our blogs to keep you informed and inspired.</p>
+                <h1>Canprosys <span class="highlight">Blog</span></h1>
+                <p>Expert tax advice, financial insights, and CRA updates to help you navigate Canada's complex tax landscape.</p>
                 <div class="hero-buttons">
                     <button class="btn-primary">Explore Articles <i class="fas fa-arrow-right"></i></button>
+                    <button class="btn-outline">Book Consultation <i class="fas fa-calendar-check"></i></button>
                 </div>
             </div>
         </section>
-    </div>
 
     <!-- ✅ Blog Section -->
     <section class="blog-section">
         <div class="container">
             <div class="section-title">
-                <h2>Insights & Ideas for Your <span class="gradient-text">Digital Journey</span></h2>
-                <p>Unlock expert articles on marketing, design & technology. Learn what works, apply it & see results.</p>
+                <h2>Tax & Financial <span class="highlight">Insights</span></h2>
+                <p>Stay informed with expert articles on tax obligations, CRA procedures, financial planning, and more.</p>
             </div>
             
             <div class="blog-grid">
@@ -614,14 +575,26 @@ if ($result === false) {
                                 ? $guid_result->fetch_assoc()['guid']
                                 : '';
                         }
+                        
+                        // Determine category based on content
+                        $content = strtolower($row['post_content']);
+                        $category = "Tax Tips";
+                        if (strpos($content, 'cra') !== false || strpos($content, 'revenue') !== false) {
+                            $category = "CRA Updates";
+                        } elseif (strpos($content, 'debt') !== false) {
+                            $category = "Debt Relief";
+                        } elseif (strpos($content, 'financial') !== false || strpos($content, 'accounting') !== false) {
+                            $category = "Financial Planning";
+                        }
                         ?>
                         <div class="blog-card">
+                            <div class="category-tag"><?php echo $category; ?></div>
                             <?php if ($img_url): ?>
                                 <img src="<?php echo $img_url; ?>" class="blog-image"
                                     alt="<?php echo htmlspecialchars($row['post_title']); ?>">
                             <?php else: ?>
-                                <div class="blog-image" style="background: var(--gradient-primary); display: flex; align-items: center; justify-content: center;">
-                                    <i class="fas fa-newspaper" style="font-size: 48px; color: white;"></i>
+                                <div class="blog-image" style="background: var(--primary); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-file-alt" style="font-size: 48px; color: white;"></i>
                                 </div>
                             <?php endif; ?>
                             <div class="blog-content">
@@ -631,13 +604,13 @@ if ($result === false) {
                                 </div>
                                 <h3 class="blog-title"><?php echo htmlspecialchars($row['post_title']); ?></h3>
                                 <p class="blog-excerpt"><?php echo substr(strip_tags($row['post_content']), 0, 120); ?>...</p>
-                                <a href="https://aaravtech.net/blogs/<?php echo $row['post_name']; ?>" class="read-more">Read More</a>
+                                <a href="https://canprosys.com/blogs/<?php echo $row['post_name']; ?>" class="read-more">Read More</a>
                             </div>
                         </div>
                     <?php endwhile; ?>
                 <?php else: ?>
                     <div class="col-12 text-center">
-                        <p style="color: rgba(246, 246, 250, 0.7); font-size: 18px;">No blogs found. Check back soon for new articles!</p>
+                        <p style="color: var(--gray); font-size: 18px;">No blogs found. Check back soon for new articles!</p>
                     </div>
                 <?php endif; ?>
             </div>
@@ -648,10 +621,11 @@ if ($result === false) {
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Stay Updated With Our Latest Insights</h2>
-                <p>Subscribe to our newsletter and never miss out on the latest trends, tips, and industry insights that can help grow your business.</p>
+                <h2>Need Help With Your Tax Obligations?</h2>
+                <p>Our team of tax experts and former CRA advisors can help you resolve tax issues, reduce penalties, and find financial relief.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary">Subscribe to Newsletter <i class="fas fa-envelope"></i></button>
+                    <button class="btn-primary">Book Consultation <i class="fas fa-calendar-check"></i></button>
+                    <button class="btn-outline">Call Us Now <i class="fas fa-phone"></i></button>
                 </div>
             </div>
         </div>
@@ -659,77 +633,56 @@ if ($result === false) {
 
     <!-- ✅ Footer -->
     <footer>
-        <div class="container-fluid">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="footer-logo">
-                        <div class="footer-logo-text">AaravTechServices</div>
-                    </div>
-                    <p>We provide cutting-edge technology solutions to help businesses thrive in the digital age. Our team of experts delivers innovative software and consulting services.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 footer-links">
+                    <h3>Canprosys Consultants Inc.</h3>
+                    <p>Your trusted partner for tax settlement, bookkeeping, and accounting services across Canada.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/p/Canprosys-Consultants-Inc-100075878817251/"
+                            target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <!-- <a href="#" target="_blank"><i class="fab fa-twitter"></i></a> -->
+                        <!-- <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a> -->
+                        <a href="https://www.instagram.com/canprosys_taxrectification/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
-                <div class="footer-column">
+                <div class="col-md-1"></div>
+                <div class="col-md-4 footer-links">
+                    <h3>Services</h3>
+                    <ul style="list-style: circle;">
+                        <li><a href="tax-settlement-relief-program-with-cra.html">Tax Rectification/Relief program with
+                                CRA</a></li>
+                        <li><a href="finance-and-accounting.html">Finance & Accounting</a></li>
+                        <li><a href="financial-aid-service.html">Financial Aid and Government Grant Programs</a></li>
+                        <li><a href="business-funding-help.html">Business Funding Help</a></li>
+                        <li><a href="networking-and-data-cabling.html">Data Networking & Cabling</a></li>
+                        <li><a href="web-and-cyber-security.html">Web & Cyber Security Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3 footer-links">
                     <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="blogs.php"><i class="fas fa-chevron-right"></i> Blogs</a></li>
-                        <li><a href="career.php"><i class="fas fa-chevron-right"></i>Career</a></li>
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <ul style="list-style: circle;">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="custom-website-development-services.html"><i class="fas fa-chevron-right"></i> Web Development</a></li>
-                        <li><a href="web-and-mobile-app-development.html"><i class="fas fa-chevron-right"></i> Mobile Apps</a></li>
-                        <li><a href="graphic-designing.html"><i class="fas fa-chevron-right"></i>Graphic Designing</a></li>
-                        <li><a href="digital-marketing.html"><i class="fas fa-chevron-right"></i> Digital Marketing</a></li>
-                        <li><a href="ui-ux-design-services.html"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
-                        <li><a href="bpo.html"><i class="fas fa-chevron-right"></i>BPO Services</a></li>
+                <!-- <div class="col-md-3 footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclosure</a></li>
                     </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Kanpur Nagar, Uttar Pradesh, India</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+91 7318083502</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>support@aaravtech.net</span>
-                        </li>
-                    </ul>
-                    
-                    <h4 style="margin-top: 20px; margin-bottom: 10px;">Newsletter</h4>
-                    <p style="font-size: 0.9rem;">Subscribe to our newsletter for the latest updates.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                </div>
+                </div> -->
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 AaravTech. All Rights Reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Sitemap</a>
-                </div>
+            <div class="copyright">
+                <p>&copy; 2025 Canprosys Consultants Inc. | All rights reserved. | <a href="privacy-policy.html"
+                        style="text-decoration: none; color: #ccc;">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
@@ -745,12 +698,48 @@ if ($result === false) {
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="js/main.js"></script>
     <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Sticky header
         window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
+            const header = document.querySelector('header');
             if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
             } else {
-                navbar.classList.remove('scrolled');
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'white';
             }
         });
     </script>
