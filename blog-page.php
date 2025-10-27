@@ -62,9 +62,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <meta name="title" content="<?php echo htmlspecialchars($rankmath['_rank_math_title'] ?? $blog['post_title']); ?>">
-    <meta name="description" content="<?php echo htmlspecialchars($rankmath['_rank_math_description'] ?? 'Default meta description here.'); ?>">
-    <meta name="keywords" content="<?php echo htmlspecialchars($rankmath['_rank_math_focus_keyword'] ?? ''); ?>">
+    <meta name="title" content="<?php echo htmlspecialchars($post_meta['rank_math_title'] ?? $blog['post_title']); ?>">
+    <meta name="description" content="<?php echo htmlspecialchars($post_meta['rank_math_description'] ?? 'Default meta description here.'); ?>">
+    <meta name="keywords" content="<?php echo htmlspecialchars($post_meta['rank_math_focus_keyword'] ?? ''); ?>">
     <link rel="canonical" href="https://canprosys.com/blog-page.php?slug=<?php echo $slug;?>" />
 
         <!-- CSS -->
