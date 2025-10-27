@@ -4,7 +4,7 @@
     // Database connection
     // --------------------
     // ✅ Connect to local XAMPP MySQL database
-    $servername = "srv1445.hstgr.io";
+    $servername = "localhost";
     $username = "u450081634_rRd7c";
     $password = "4mh0ICUE0Z";
     $dbname = "u450081634_XudLt";  // your DB name
@@ -66,7 +66,7 @@
     <meta name="description" content="<?php echo htmlspecialchars($post_meta['rank_math_description'] ?? 'Default meta description here.'); ?>">
     <meta name="keywords" content="<?php echo htmlspecialchars($post_meta['rank_math_focus_keyword'] ?? ''); ?>">
     <link rel="canonical" href="https://canprosys.com/blogs/<?php echo $slug;?>" />
-
+    <title><?php echo htmlspecialchars($post_meta['rank_math_title'] ?? $blog['post_title']); ?></title>
         <!-- CSS -->
     <link href="https://canprosys.com/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://canprosys.com/css/style.css">
