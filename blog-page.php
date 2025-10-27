@@ -36,7 +36,23 @@
     
     $blog = $result->fetch_assoc();
     $stmt->close();
+    $sql_meta = "
+        SELECT meta_key, meta_value
+        FROM wp_postmeta
+        WHERE post_id = ?
+    ";
 
+    $stmt_meta = $conn->prepare($sql_meta);
+    $stmt_meta->bind_param("i", $blog['ID']);
+    $stmt_meta->execute();
+    $result_meta = $stmt_meta->get_result();
+
+    $post_meta = [];
+    while ($row = $result_meta->fetch_assoc()) {
+        $post_meta[$row['meta_key']] = $row['meta_value'];
+    }
+
+    $stmt_meta->close();
 
 ?>
  <!DOCTYPE html>
@@ -46,9 +62,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <title><?php echo htmlspecialchars($blog['post_title']); ?> | Canprosys Consultants Inc.</title>
-    <meta name="description" content="<?php echo substr(strip_tags($blog['post_content']), 0, 150); ?>">
-    <link rel="canonical" href="https://canprosys.com/blog-page.php?slug=<?php echo $slug; ?>" />
+    <meta name="title" content="<?php echo htmlspecialchars($rankmath['_rank_math_title'] ?? $blog['post_title']); ?>">
+    <meta name="description" content="<?php echo htmlspecialchars($rankmath['_rank_math_description'] ?? 'Default meta description here.'); ?>">
+    <meta name="keywords" content="<?php echo htmlspecialchars($rankmath['_rank_math_focus_keyword'] ?? ''); ?>">
+    <link rel="canonical" href="https://canprosys.com/blog-page.php?slug=<?php echo $slug;?>" />
 
         <!-- CSS -->
     <link href="https://canprosys.com/css/bootstrap.min.css" rel="stylesheet">
