@@ -4,7 +4,7 @@
     // Database connection
     // --------------------
     // ✅ Connect to local XAMPP MySQL database
-    $servername = "localhost";
+    $servername = "srv1445.hstgr.io";
     $username = "u450081634_rRd7c";
     $password = "4mh0ICUE0Z";
     $dbname = "u450081634_XudLt";  // your DB name
@@ -805,8 +805,8 @@
                 header.style.background = 'white';
             }
         });
-        const postMeta = <?php echo json_encode($post_meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>;
-        console.log("Post Meta:", postMeta);
+        // const postMeta = <?php echo json_encode($post_meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>;
+        // console.log("Post Meta:", postMeta);
     </script>
 </body>
 </html>
