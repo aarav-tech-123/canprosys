@@ -108,6 +108,10 @@
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         .container {
@@ -807,6 +811,17 @@
         });
         // const postMeta = <?php echo json_encode($post_meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>;
         // console.log("Post Meta:", postMeta);
+    </script>
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Disable text selection
+        document.addEventListener('selectstart', event => event.preventDefault());
+
+        // Disable copy and cut
+        document.addEventListener('copy', event => event.preventDefault());
+        document.addEventListener('cut', event => event.preventDefault());
     </script>
 </body>
 </html>
