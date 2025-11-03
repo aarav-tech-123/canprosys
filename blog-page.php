@@ -740,7 +740,7 @@
                 </div> -->
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Canprosys Consultants Inc. | All rights reserved. | <a href="privacy-policy.html"
+                <p>&copy; 2025 Canprosys Consultants Inc. | All rights reserved. | <a href="../privacy-policy.html"
                         style="text-decoration: none; color: #ccc;">Privacy Policy</a></p>
             </div>
         </div>
