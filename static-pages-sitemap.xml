@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://canprosys.com/</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>1.0</priority>
+</url>
+ 
+  <url>
+<loc>https://canprosys.com/about.html</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.8</priority>
+</url>
+ 
+  <url>
+<loc>https://canprosys.com/tax-settlement-relief-program-with-cra.html</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.8</priority>
+</url>
+ 
+  <url>
+<loc>https://canprosys.com/finance-and-accounting.html</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.8</priority>
+</url>
+ 
+  <url>
+<loc>https://canprosys.com/financial-aid-service.html</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.7</priority>
+</url>
+ 
+  <url>
+<loc>https://canprosys.com/business-funding-help.html</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.7</priority>
+</url>
+ 
+  <url>
+<loc>https://canprosys.com/web-and-cyber-security.html</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.6</priority>
+</url>
+ 
+  <url>
+<loc>https://canprosys.com/networking-and-data-cabling.html</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.6</priority>
+</url>
+ 
+  <url>
+<loc>https://canprosys.com/privacy-policy.html</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.3</priority>
+</url>
+ 
+  <url>
+<loc>https://canprosys.com/contact.html</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.5</priority>
+</url>
+ 
+  <!-- Optional: keep if you want the blog hub indexed as a page -->
+<url>
+<loc>https://canprosys.com/blogs.php</loc>
+<lastmod>2025-11-06</lastmod>
+<priority>0.5</priority>
+</url>
+</urlset>
+
+ 

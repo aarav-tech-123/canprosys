@@ -1,73 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
-                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <url>
-    <loc>https://canprosys.com/</loc>
-    <lastmod>2025-09-18T18:09:22+00:00</lastmod>
-    <priority>1.00</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/about.html</loc>
-    <lastmod>2025-09-18T18:09:21+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/tax-settlement-relief-program-with-cra.html</loc>
-    <lastmod>2025-09-18T18:09:22+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/finance-and-accounting.html</loc>
-    <lastmod>2025-09-18T18:09:21+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/financial-aid-service.html</loc>
-    <lastmod>2025-09-18T18:09:21+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/business-funding-help.html</loc>
-    <lastmod>2025-09-18T18:09:21+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/index.html</loc>
-    <lastmod>2025-09-18T18:09:22+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/contact.html</loc>
-    <lastmod>2025-09-18T18:09:21+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/web-and-cyber-security.html</loc>
-    <lastmod>2025-09-18T18:09:22+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/networking-data-cabling.html</loc>
-    <lastmod>2025-09-18T18:09:22+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://canprosys.com/privacy-policy.html</loc>
-    <lastmod>2025-09-18T18:09:22+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap>
+<loc>https://canprosys.com/static-pages-sitemap.xml</loc>
+<lastmod>2025-11-06</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://canprosys.com/blogs/sitemap_index.xml</loc>
+<lastmod>2025-11-06</lastmod>
+</sitemap>
+</sitemapindex>
