@@ -49,7 +49,7 @@ if ($result === false) {
     <title>Tax & Financial Insights Blog | Canprosys Consultants Inc.</title>
     <meta name="description"
         content="Expert tax advice, financial insights, and CRA updates from Canprosys Consultants Inc. Stay informed with our professional tax and accounting blog.">
-    <link rel="canonical" href="https://canprosys.com/blogs.html" />
+    <link rel="canonical" href="https://canprosys.com/blogs.php" />
 
     <!-- ✅ Styles & Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
