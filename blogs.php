@@ -46,9 +46,9 @@ if ($result === false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <title>Tax & Financial Insights Blog | Canprosys Consultants Inc.</title>
+    <title>Read Our Blogs | Insights on Tax Relief & CRA Debt Solutions</title>
     <meta name="description"
-        content="Expert tax advice, financial insights, and CRA updates from Canprosys Consultants Inc. Stay informed with our professional tax and accounting blog.">
+        content="Stay informed with Canprosys Blog — your trusted source for tax debt relief insights, CRA settlement advice, and proven financial recovery strategies. Visit Now">
     <link rel="canonical" href="https://canprosys.com/blogs.php" />
 
     <!-- ✅ Styles & Icons -->
