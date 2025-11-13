@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <sitemap>
 <loc>https://canprosys.com/static-pages-sitemap.xml</loc>
 <lastmod>2025-11-06</lastmod>
 </sitemap>
 <sitemap>
-<loc>https://canprosys.com/blogs/sitemap_index.xml</loc>
+<loc>https://canprosys.com/blogs/post-sitemap.xml</loc>
 <lastmod>2025-11-06</lastmod>
 </sitemap>
 </sitemapindex>
