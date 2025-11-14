@@ -1,61 +1,61 @@
 <?php
 
-    // --------------------
-    // Database connection
-    // --------------------
-    // ✅ Connect to local XAMPP MySQL database
-    $servername = "localhost";
-    $username = "u450081634_rRd7c";
-    $password = "4mh0ICUE0Z";
-    $dbname = "u450081634_XudLt";  // your DB name
-    
-    $conn = new mysqli($servername, $username, $password, $dbname);
+// --------------------
+// Database connection
+// --------------------
+// ✅ Connect to local XAMPP MySQL database
+$servername = "localhost";
+$username = "u450081634_rRd7c";
+$password = "4mh0ICUE0Z";
+$dbname = "u450081634_XudLt";  // your DB name
 
-    if ($conn->connect_error) {
-        die("Database Connection failed: " . $conn->connect_error);
-    }
-    
-    // --------------------
-    // Validate blog ID
-    // --------------------
-    if (!isset($_GET['slug'])) {
-        die("Invalid blog slug");
-    }
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    $slug = $_GET['slug'];
-    $sql = "SELECT * FROM wp_posts WHERE post_name = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $slug);;
+if ($conn->connect_error) {
+    die("Database Connection failed: " . $conn->connect_error);
+}
 
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows === 0) {
-        die("Blog not found!");
-    }
-    
-    $blog = $result->fetch_assoc();
-    $stmt->close();
-    $sql_meta = "
+// --------------------
+// Validate blog ID
+// --------------------
+if (!isset($_GET['slug'])) {
+    die("Invalid blog slug");
+}
+
+$slug = $_GET['slug'];
+$sql = "SELECT * FROM wp_posts WHERE post_name = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $slug);;
+
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    die("Blog not found!");
+}
+
+$blog = $result->fetch_assoc();
+$stmt->close();
+$sql_meta = "
         SELECT meta_key, meta_value
         FROM wp_postmeta
         WHERE post_id = ?
     ";
 
-    $stmt_meta = $conn->prepare($sql_meta);
-    $stmt_meta->bind_param("i", $blog['ID']);
-    $stmt_meta->execute();
-    $result_meta = $stmt_meta->get_result();
+$stmt_meta = $conn->prepare($sql_meta);
+$stmt_meta->bind_param("i", $blog['ID']);
+$stmt_meta->execute();
+$result_meta = $stmt_meta->get_result();
 
-    $post_meta = [];
-    while ($row = $result_meta->fetch_assoc()) {
-        $post_meta[$row['meta_key']] = $row['meta_value'];
-    }
+$post_meta = [];
+while ($row = $result_meta->fetch_assoc()) {
+    $post_meta[$row['meta_key']] = $row['meta_value'];
+}
 
-    $stmt_meta->close();
+$stmt_meta->close();
 
 ?>
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -65,9 +65,9 @@
     <meta name="title" content="<?php echo htmlspecialchars($post_meta['rank_math_title'] ?? $blog['post_title']); ?>">
     <meta name="description" content="<?php echo htmlspecialchars($post_meta['rank_math_description'] ?? 'Default meta description here.'); ?>">
     <meta name="keywords" content="<?php echo htmlspecialchars($post_meta['rank_math_focus_keyword'] ?? ''); ?>">
-    <link rel="canonical" href="https://canprosys.com/blogs/<?php echo $slug;?>" />
+    <link rel="canonical" href="https://canprosys.com/blogs/<?php echo $slug; ?>/" />
     <title><?php echo htmlspecialchars($post_meta['rank_math_title'] ?? $blog['post_title']); ?></title>
-        <!-- CSS -->
+    <!-- CSS -->
     <link href="https://canprosys.com/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://canprosys.com/css/style.css">
     <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -90,18 +90,18 @@
             --light-blue: #e8f4fd;
             --orange-light: #fef0e6;
             --border-light: 1px solid #e0e0e0;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
-            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
         }
-        
+
         body {
             background-color: #ffffff;
             color: var(--dark);
@@ -113,7 +113,7 @@
             -ms-user-select: none;
             user-select: none;
         }
-        
+
         .container {
             width: 100%;
             max-width: 1200px;
@@ -144,7 +144,7 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
         }
-        
+
         .blog-hero h1 {
             font-size: 48px;
             margin-bottom: 24px;
@@ -153,7 +153,7 @@
             letter-spacing: -1px;
             color: white;
         }
-        
+
         .blog-meta {
             display: flex;
             justify-content: center;
@@ -163,19 +163,19 @@
             font-size: 16px;
             margin-bottom: 40px;
         }
-        
+
         .blog-meta i {
             color: var(--secondary);
             margin-right: 8px;
         }
-        
+
         /* Blog Content Section */
         .blog-content-section {
             padding: 80px 0;
             position: relative;
             background: var(--light);
         }
-        
+
         .blog-content-wrapper {
             max-width: 900px;
             margin: 0 auto;
@@ -184,7 +184,7 @@
             padding: 50px;
             box-shadow: var(--shadow-md);
         }
-        
+
         .blog-featured-image {
             width: 100%;
             height: 400px;
@@ -193,13 +193,13 @@
             margin-bottom: 40px;
             box-shadow: var(--shadow-sm);
         }
-        
+
         .blog-content {
             font-size: 18px;
             line-height: 1.8;
             color: var(--dark);
         }
-        
+
         .blog-content h1,
         .blog-content h2,
         .blog-content h3,
@@ -208,50 +208,50 @@
             margin: 30px 0 20px;
             font-weight: 600;
         }
-        
+
         .blog-content h1 {
             font-size: 32px;
             border-bottom: 2px solid var(--light-blue);
             padding-bottom: 10px;
         }
-        
+
         .blog-content h2 {
             font-size: 28px;
             color: var(--primary);
         }
-        
+
         .blog-content h3 {
             font-size: 24px;
         }
-        
+
         .blog-content p {
             margin-bottom: 20px;
             color: var(--gray);
         }
-        
+
         .blog-content a {
             color: var(--primary);
             text-decoration: none;
             transition: all 0.3s;
             font-weight: 500;
         }
-        
+
         .blog-content a:hover {
             color: var(--secondary);
             text-decoration: underline;
         }
-        
+
         .blog-content ul,
         .blog-content ol {
             margin: 20px 0;
             padding-left: 30px;
             color: var(--gray);
         }
-        
+
         .blog-content li {
             margin-bottom: 10px;
         }
-        
+
         .blog-content blockquote {
             border-left: 4px solid var(--primary);
             padding: 20px 20px 20px 30px;
@@ -262,7 +262,7 @@
             border-radius: 0 10px 10px 0;
             box-shadow: var(--shadow-sm);
         }
-        
+
         .blog-content code {
             background: var(--light-blue);
             padding: 2px 6px;
@@ -270,7 +270,7 @@
             font-family: 'Courier New', monospace;
             color: var(--primary);
         }
-        
+
         .blog-content pre {
             background: var(--dark);
             color: white;
@@ -280,7 +280,7 @@
             margin: 20px 0;
             box-shadow: var(--shadow-md);
         }
-        
+
         .blog-tags {
             display: flex;
             flex-wrap: wrap;
@@ -289,7 +289,7 @@
             padding-top: 30px;
             border-top: var(--border-light);
         }
-        
+
         .blog-tag {
             background: var(--light-blue);
             color: var(--primary);
@@ -299,12 +299,12 @@
             text-decoration: none;
             transition: all 0.3s;
         }
-        
+
         .blog-tag:hover {
             background: var(--primary);
             color: white;
         }
-        
+
         /* Author Section */
         .blog-author {
             background: var(--light);
@@ -316,7 +316,7 @@
             gap: 20px;
             border-left: 4px solid var(--secondary);
         }
-        
+
         .author-avatar {
             width: 80px;
             height: 80px;
@@ -329,18 +329,18 @@
             font-size: 24px;
             font-weight: bold;
         }
-        
+
         .author-info h4 {
             color: var(--dark);
             margin-bottom: 5px;
             font-size: 18px;
         }
-        
+
         .author-info p {
             color: var(--gray);
             margin-bottom: 0;
         }
-        
+
         /* CTA Section */
         .cta-section {
             padding: 100px 0;
@@ -350,14 +350,14 @@
             background: linear-gradient(135deg, var(--primary) 0%, #2c3e50 100%);
             color: white;
         }
-        
+
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
-        
+
         .cta-section h2 {
             font-size: 42px;
             margin-bottom: 24px;
@@ -365,14 +365,14 @@
             font-weight: 700;
             line-height: 1.2;
         }
-        
+
         .cta-section p {
             font-size: 20px;
             max-width: 700px;
             margin: 0 auto 40px;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .btn-primary {
             background: var(--secondary);
             color: white;
@@ -389,7 +389,7 @@
             font-size: 16px;
             text-decoration: none;
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(211, 84, 0, 0.4);
@@ -397,9 +397,9 @@
             color: white;
             text-decoration: none;
         }
-        
-      
-        
+
+
+
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
@@ -420,24 +420,24 @@
             opacity: 0;
             visibility: hidden;
         }
-        
+
         .back-to-top.show {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .back-to-top:hover {
             transform: translateY(-3px);
             background: var(--secondary);
             color: white;
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             nav {
                 position: fixed;
                 top: 80px;
@@ -450,19 +450,19 @@
                 visibility: hidden;
                 transition: all 0.3s;
             }
-            
+
             nav.active {
                 transform: translateY(0);
                 opacity: 1;
                 visibility: visible;
             }
-            
+
             nav ul {
                 flex-direction: column;
                 padding: 20px;
                 gap: 15px;
             }
-            
+
             .dropdown-content {
                 position: static;
                 box-shadow: none;
@@ -473,51 +473,51 @@
                 margin-top: 10px;
                 border-radius: 5px;
             }
-            
+
             .blog-hero {
                 padding: 140px 0 60px;
             }
-            
+
             .blog-hero h1 {
                 font-size: 36px;
             }
-            
+
             .blog-meta {
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .blog-content-wrapper {
                 padding: 30px 20px;
             }
-            
+
             .blog-featured-image {
                 height: 250px;
             }
-            
+
             .blog-content {
                 font-size: 16px;
             }
-            
+
             .blog-author {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .cta-section h2 {
                 font-size: 32px;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
+
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .back-to-top {
                 bottom: 20px;
                 right: 20px;
@@ -525,24 +525,24 @@
                 height: 45px;
             }
         }
-        
+
         @media (max-width: 576px) {
             .blog-hero h1 {
                 font-size: 32px;
             }
-            
+
             .cta-section h2 {
                 font-size: 28px;
             }
-            
+
             .blog-content h1 {
                 font-size: 28px;
             }
-            
+
             .blog-content h2 {
                 font-size: 24px;
             }
-            
+
             .blog-content h3 {
                 font-size: 20px;
             }
@@ -551,29 +551,29 @@
 </head>
 
 <body>
-        <?php
-            $author_id = $blog['post_author'];
-            $author_result = $conn->query("SELECT display_name FROM wp_users WHERE ID = $author_id");
-            $author = ($author_result && $author_result->num_rows > 0)
-                ? $author_result->fetch_assoc()['display_name']
-                : "Unknown";
+    <?php
+    $author_id = $blog['post_author'];
+    $author_result = $conn->query("SELECT display_name FROM wp_users WHERE ID = $author_id");
+    $author = ($author_result && $author_result->num_rows > 0)
+        ? $author_result->fetch_assoc()['display_name']
+        : "Unknown";
 
-            $image_result = $conn->query("
+    $image_result = $conn->query("
                 SELECT meta_value FROM wp_postmeta
                 WHERE post_id = {$blog['ID']} AND meta_key = '_thumbnail_id' LIMIT 1
             ");
-            $thumbnail_id = ($image_result && $image_result->num_rows > 0)
-                ? $image_result->fetch_assoc()['meta_value']
-                : 0;
+    $thumbnail_id = ($image_result && $image_result->num_rows > 0)
+        ? $image_result->fetch_assoc()['meta_value']
+        : 0;
 
-            $img_url = '';
-            if ($thumbnail_id) {
-                $guid_result = $conn->query("SELECT guid FROM wp_posts WHERE ID = $thumbnail_id");
-                $img_url = ($guid_result && $guid_result->num_rows > 0)
-                    ? $guid_result->fetch_assoc()['guid']
-                    : '';
-            }
-        ?>
+    $img_url = '';
+    if ($thumbnail_id) {
+        $guid_result = $conn->query("SELECT guid FROM wp_posts WHERE ID = $thumbnail_id");
+        $img_url = ($guid_result && $guid_result->num_rows > 0)
+            ? $guid_result->fetch_assoc()['guid']
+            : '';
+    }
+    ?>
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -639,11 +639,11 @@
                         <i class="fas fa-file-alt" style="font-size: 72px; color: white;"></i>
                     </div>
                 <?php endif; ?>
-                
+
                 <div class="blog-content">
                     <?php echo $blog['post_content']; ?>
                 </div>
-                
+
                 <!-- Blog Tags -->
                 <div class="blog-tags">
                     <strong style="color: var(--dark); margin-right: 15px;">Tags:</strong>
@@ -656,7 +656,7 @@
                         INNER JOIN wp_term_relationships tr ON tr.term_taxonomy_id = tt.term_taxonomy_id 
                         WHERE tr.object_id = {$blog['ID']} AND tt.taxonomy = 'post_tag'
                     ");
-                    
+
                     if ($tags_result && $tags_result->num_rows > 0) {
                         while ($tag = $tags_result->fetch_assoc()) {
                             echo '<a href="#" class="blog-tag">' . htmlspecialchars($tag['name']) . '</a>';
@@ -760,7 +760,7 @@
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
-    
+
     <script>
         // Mobile Menu Toggle
         const menuBtn = document.querySelector('.mobile-menu-btn');
@@ -779,9 +779,9 @@
         });
 
         // Back to top button
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             const backToTop = document.querySelector('.back-to-top');
-            
+
             if (window.scrollY > 300) {
                 backToTop.classList.add('show');
             } else {
@@ -799,7 +799,7 @@
         });
 
         // Sticky header
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
@@ -824,11 +824,13 @@
         document.addEventListener('cut', event => event.preventDefault());
     </script>
 </body>
+
 </html>
 
 <?php
 // Helper function to calculate reading time
-function reading_time($content) {
+function reading_time($content)
+{
     $word_count = str_word_count(strip_tags($content));
     $reading_time = ceil($word_count / 200); // Average reading speed: 200 words per minute
     return max(1, $reading_time); // Minimum 1 minute
