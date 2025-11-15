@@ -46,9 +46,9 @@ if ($result === false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <title>Read Our Blogs | Insights on Tax Relief & CRA Debt Solutions</title>
+    <title>Expert Insights on CRA Tax Relief, Accounting & Financial Aid</title>
     <meta name="description"
-        content="Stay informed with Canprosys Blog — your trusted source for tax debt relief insights, CRA settlement advice, and proven financial recovery strategies. Visit Now">
+        content="Our expert team shares actionable insights & proven solutions to help individuals and businesses resolve tax burdens and improve financial stability. Check Now">
     <link rel="canonical" href="https://canprosys.com/blogs.php" />
 
     <!-- ✅ Styles & Icons -->
@@ -71,14 +71,14 @@ if ($result === false) {
             --light-blue: #e8f4fd;
             --orange-light: #fef0e6;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
         }
-        
+
         body {
             background-color: #ffffff;
             color: var(--dark);
@@ -86,38 +86,39 @@ if ($result === false) {
             overflow-x: hidden;
             min-height: 100vh;
         }
-        
+
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding:15px 20px;
+            padding: 15px 20px;
         }
 
         /* Header Styles */
-       
-        
+
+
         /* Hero Section */
         .hero {
             padding: 140px 0 80px;
             position: relative;
             overflow: hidden;
-            background: 
+            background:
                 linear-gradient(135deg, var(--primary) 0%, #2c3e50 100%);
             color: white;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
-            p{
-                text-align:center;
+
+            p {
+                text-align: center;
             }
         }
-        
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -131,7 +132,7 @@ if ($result === false) {
             border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
         }
-        
+
         .hero h1 {
             font-size: 60px;
             margin-bottom: 24px;
@@ -140,11 +141,11 @@ if ($result === false) {
             letter-spacing: -1px;
             color: var(--bs-light);
         }
-        
+
         .hero h1 .highlight {
             color: var(--secondary);
         }
-        
+
         .hero p {
             font-size: 20px;
             max-width: 700px;
@@ -152,14 +153,14 @@ if ($result === false) {
             color: rgba(255, 255, 255, 0.9);
             font-weight: 400;
         }
-        
+
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 16px;
             flex-wrap: wrap;
         }
-        
+
         .btn-primary {
             background: var(--secondary);
             color: white;
@@ -175,14 +176,14 @@ if ($result === false) {
             gap: 10px;
             font-size: 16px;
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(211, 84, 0, 0.4);
             background: #e74c3c;
             color: white;
         }
-        
+
         .btn-outline {
             background: transparent;
             color: white;
@@ -197,7 +198,7 @@ if ($result === false) {
             gap: 10px;
             font-size: 16px;
         }
-        
+
         .btn-outline:hover {
             background: white;
             color: var(--primary);
@@ -209,39 +210,39 @@ if ($result === false) {
             position: relative;
             background: var(--light);
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 70px;
         }
-        
+
         .section-title h2 {
             font-size: 48px;
             color: var(--dark);
             margin-bottom: 16px;
             font-weight: 700;
-            text-align:center;
+            text-align: center;
         }
-        
+
         .section-title h2 .highlight {
             color: var(--primary);
         }
-        
+
         .section-title p {
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto;
             font-size: 18px;
             font-weight: 400;
-            text-align:center;
+            text-align: center;
         }
-        
+
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
-        
+
         .blog-card {
             background: white;
             border-radius: 10px;
@@ -253,23 +254,23 @@ if ($result === false) {
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             height: 100%;
         }
-        
+
         .blog-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         .blog-image {
             width: 100%;
             height: 220px;
             object-fit: cover;
             border-radius: 10px 10px 0 0;
         }
-        
+
         .blog-content {
             padding: 30px;
         }
-        
+
         .blog-meta {
             display: flex;
             align-items: center;
@@ -278,12 +279,12 @@ if ($result === false) {
             font-size: 14px;
             color: var(--gray);
         }
-        
+
         .blog-meta i {
             color: var(--primary);
             margin-right: 5px;
         }
-        
+
         .blog-title {
             font-size: 20px;
             margin-bottom: 15px;
@@ -291,14 +292,14 @@ if ($result === false) {
             font-weight: 600;
             line-height: 1.4;
         }
-        
+
         .blog-excerpt {
             color: var(--gray);
             margin-bottom: 20px;
             font-size: 15px;
             line-height: 1.6;
         }
-        
+
         .read-more {
             background: transparent;
             color: var(--primary);
@@ -311,14 +312,14 @@ if ($result === false) {
             text-decoration: none;
             display: inline-block;
         }
-        
+
         .read-more:hover {
             background: var(--primary);
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(26, 79, 140, 0.2);
         }
-        
+
         .category-tag {
             position: absolute;
             top: 15px;
@@ -338,18 +339,18 @@ if ($result === false) {
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: 
+            background:
                 linear-gradient(135deg, var(--primary) 0%, #2c3e50 100%);
             color: white;
         }
-        
+
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
-        
+
         .cta-section h2 {
             font-size: 48px;
             margin-bottom: 24px;
@@ -357,21 +358,21 @@ if ($result === false) {
             font-weight: 700;
             line-height: 1.2;
         }
-        
+
         .cta-section p {
             font-size: 20px;
             max-width: 700px;
             margin: 0 auto 40px;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .newsletter-form {
             display: flex;
             max-width: 500px;
             margin: 0 auto;
             gap: 10px;
         }
-        
+
         .newsletter-form input {
             flex: 1;
             padding: 15px 20px;
@@ -379,7 +380,7 @@ if ($result === false) {
             border-radius: 30px;
             font-size: 16px;
         }
-        
+
         .newsletter-form button {
             background: var(--secondary);
             color: white;
@@ -390,72 +391,72 @@ if ($result === false) {
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .newsletter-form button:hover {
             background: #e74c3c;
         }
 
-        
+
         /* Responsive Design */
         @media (max-width: 1100px) {
             .hero h1 {
                 font-size: 50px;
             }
-            
+
             .section-title h2 {
                 font-size: 42px;
             }
-            
+
             .cta-section h2 {
                 font-size: 42px;
             }
         }
 
-        
+
         @media (max-width: 768px) {
             .hero {
                 padding: 120px 0 60px;
             }
-            
+
             .hero h1 {
                 font-size: 40px;
             }
-            
+
             .hero p {
                 font-size: 18px;
             }
-            
+
             .section-title h2 {
                 font-size: 36px;
             }
-            
+
             .cta-section h2 {
                 font-size: 36px;
             }
-            
+
             .blog-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .newsletter-form {
                 flex-direction: column;
             }
-            
+
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
             }
         }
-        
+
         @media (max-width: 576px) {
             .hero h1 {
                 font-size: 36px;
             }
-            
+
             .section-title h2 {
                 font-size: 32px;
             }
-            
+
             .cta-section h2 {
                 font-size: 32px;
             }
@@ -463,9 +464,12 @@ if ($result === false) {
     </style>
     <!-- ✅ Google Tag Manager -->
     <script>
-        (function (w, d, s, l, i) {
+        (function(w, d, s, l, i) {
             w[l] = w[l] || [];
-            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
             var f = d.getElementsByTagName(s)[0],
                 j = d.createElement(s),
                 dl = l != 'dataLayer' ? '&l=' + l : '';
@@ -500,7 +504,7 @@ if ($result === false) {
             <div class="mobile-menu-btn">☰</div>
             <nav>
                 <ul>
-                    <li><a href="/" >Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li class="dropdown">
                         <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
@@ -524,23 +528,23 @@ if ($result === false) {
         </div>
     </header>
 
-     <!-- Hero Section -->
-        <section class="hero">
-            <div class="container hero-content" >
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Blogs</li>
-                </ol>
-                <div class="hero-badge">
-                    <i class="fas fa-blog"></i> Tax & Financial Insights
-                </div>
-                <h1>Canprosys <span class="highlight">Blog</span></h1>
-                <p>Expert tax advice, financial insights, and CRA updates to help you navigate Canada's complex tax landscape.</p>
-                <div class="hero-buttons">
-                    <a href="contact.html" class="btn-outline">Book Consultation <i class="fas fa-calendar-check"></i></a>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Blogs</li>
+            </ol>
+            <div class="hero-badge">
+                <i class="fas fa-blog"></i> Tax & Financial Insights
             </div>
-        </section>
+            <h1>Canprosys <span class="highlight">Blog</span></h1>
+            <p>Expert tax advice, financial insights, and CRA updates to help you navigate Canada's complex tax landscape.</p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn-outline">Book Consultation <i class="fas fa-calendar-check"></i></a>
+            </div>
+        </div>
+    </section>
 
     <!-- ✅ Blog Section -->
     <section class="blog-section">
@@ -549,7 +553,7 @@ if ($result === false) {
                 <h2>Tax & Financial <span class="highlight">Insights</span></h2>
                 <p>Stay informed with expert articles on tax obligations, CRA procedures, financial planning, and more.</p>
             </div>
-            
+
             <div class="blog-grid">
                 <?php if ($result->num_rows > 0): ?>
                     <?php while ($row = $result->fetch_assoc()): ?>
@@ -575,7 +579,7 @@ if ($result === false) {
                                 ? $guid_result->fetch_assoc()['guid']
                                 : '';
                         }
-                        
+
                         // Determine category based on content
                         $content = strtolower($row['post_content']);
                         $category = "Tax Tips";
@@ -715,7 +719,7 @@ if ($result === false) {
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
 
                 const targetId = this.getAttribute('href');
@@ -732,7 +736,7 @@ if ($result === false) {
         });
 
         // Sticky header
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';

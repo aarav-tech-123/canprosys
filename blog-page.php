@@ -724,7 +724,6 @@ $stmt_meta->close();
                     <h3>Quick Links</h3>
                     <ul style="list-style: circle;">
                         <li><a href="https://canprosys.com/">Home</a></li>
-                        <li><a href="#services">Services</a></li>
                         <li><a href="https://canprosys.com/about.html">About Us</a></li>
                         <li><a href="#process">Our Process</a></li>
                         <li><a href="https://canprosys.com/contact.html">Contact</a></li>
@@ -740,7 +739,7 @@ $stmt_meta->close();
                 </div> -->
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Canprosys Consultants Inc. | All rights reserved. | <a href="../privacy-policy.html"
+                <p>&copy; 2025 Canprosys Consultants Inc. | All rights reserved. | <a href="https://canprosys.com/privacy-policy.html"
                         style="text-decoration: none; color: #ccc;">Privacy Policy</a></p>
             </div>
         </div>
@@ -812,7 +811,7 @@ $stmt_meta->close();
         // const postMeta = <?php echo json_encode($post_meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>;
         // console.log("Post Meta:", postMeta);
     </script>
-    <script>
+    <!-- <script>
         // Disable right-click
         document.addEventListener('contextmenu', event => event.preventDefault());
 
@@ -822,7 +821,7 @@ $stmt_meta->close();
         // Disable copy and cut
         document.addEventListener('copy', event => event.preventDefault());
         document.addEventListener('cut', event => event.preventDefault());
-    </script>
+    </script> -->
 </body>
 
 </html>
