@@ -1,0 +1,15 @@
+{
+    "name": "aditya/canprosys",
+    "autoload": {
+        "psr-4": {
+            "Aditya\\Canprosys\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aditya Gupta",
+            "email": "aditya.gupta@aaravtech.net"
+        }
+    ],
+    "require": {}
+}
