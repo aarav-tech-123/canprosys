@@ -1,7 +1,8 @@
 <?php
-// TEMP DEV: show all errors while debugging (remove on production)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+if (php_sapi_name() !== 'cli') { // Only allow CLI (cron)
+    header("Location: /"); // Redirect to home page
+    exit;
+}
 
 // Autoloader check
 $autoload = __DIR__ . '/vendor/autoload.php';
