@@ -1,44 +1,60 @@
 <?php
-// Load Composer autoloader
-require __DIR__ . '/vendor/autoload.php';
+// TEMP DEV: show all errors while debugging (remove on production)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Autoloader check
+$autoload = __DIR__ . '/vendor/autoload.php';
+if (!file_exists($autoload)) {
+    die("Composer autoload not found. Run `composer require phpoffice/phpspreadsheet` in " . __DIR__);
+}
+require $autoload;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 // ========================
-//  DATABASE CONNECTION
+// Database connection
 // ========================
-$servername = "localhost";
+$servername = "srv1445.hstgr.io";
 $username   = "u450081634_canprosys";
 $password   = "Aarav@2871#";
 $dbname     = "u450081634_canprosys";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+    die("DB connection failed: " . $conn->connect_error);
 }
 
 // =========================
-// FETCH LEADS (last 24 hrs)
+// Fetch leads (last 24 hrs)
 // =========================
 $query = "
     SELECT full_name, phone_number, email, subject, location,
-        best_date_to_call, best_time_to_call, message, created_at
+           best_date_to_call, best_time_to_call, message, created_at
     FROM leads
     WHERE created_at >= NOW() - INTERVAL 1 DAY
     ORDER BY created_at DESC
 ";
 
 $result = $conn->query($query);
+if ($result === false) {
+    die("DB query error: " . $conn->error);
+}
+
+if ($result->num_rows === 0) {
+    // Nothing to report — still create an empty spreadsheet if you want, or exit.
+    echo "No leads in last 24 hours.\n";
+    $conn->close();
+    exit;
+}
 
 // =========================
-// CREATE SPREADSHEET
+// Create spreadsheet
 // =========================
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
-// Headers
 $headers = [
     "Full Name",
     "Phone Number",
@@ -51,59 +67,83 @@ $headers = [
     "Submitted On"
 ];
 
-$column = "A";
-foreach ($headers as $header) {
-    $sheet->setCellValue($column . "1", $header);
-    $column++;
+$col = 'A';
+foreach ($headers as $h) {
+    $sheet->setCellValue($col . '1', $h);
+    $col++;
 }
 
 $rowNum = 2;
 while ($row = $result->fetch_assoc()) {
-    $sheet->setCellValue("A$rowNum", $row['full_name']);
-    $sheet->setCellValue("B$rowNum", $row['phone_number']);
-    $sheet->setCellValue("C$rowNum", $row['email']);
-    $sheet->setCellValue("D$rowNum", $row['subject']);
-    $sheet->setCellValue("E$rowNum", $row['location']);
-    $sheet->setCellValue("F$rowNum", $row['best_date_to_call']);
-    $sheet->setCellValue("G$rowNum", $row['best_time_to_call']);
-    $sheet->setCellValue("H$rowNum", $row['message']);
-    $sheet->setCellValue("I$rowNum", $row['created_at']);
+    $sheet->setCellValue("A{$rowNum}", $row['full_name']);
+    $sheet->setCellValue("B{$rowNum}", $row['phone_number']);
+    $sheet->setCellValue("C{$rowNum}", $row['email']);
+    $sheet->setCellValue("D{$rowNum}", $row['subject']);
+    $sheet->setCellValue("E{$rowNum}", $row['location']);
+    $sheet->setCellValue("F{$rowNum}", $row['best_date_to_call']);
+    $sheet->setCellValue("G{$rowNum}", $row['best_time_to_call']);
+    $sheet->setCellValue("H{$rowNum}", $row['message']);
+    $sheet->setCellValue("I{$rowNum}", $row['created_at']);
     $rowNum++;
 }
 
 // =========================
-// Save Excel in public_html
+// Prepare writer and save
+// Use __DIR__ so path works locally and on Hostinger
 // =========================
-$filename = "/home/u450081634/public_html/Daily_Leads_Report_" . date("Y-m-d") . ".xlsx";
-$writer = new Xlsx($spreadsheet);
-$writer->save($filename);
+$filename = "Daily_Leads_Report_" . date("Y-m-d") . ".xlsx";
+$savePath = __DIR__ . DIRECTORY_SEPARATOR . $filename;
+
+// Instantiate writer safely
+try {
+    $writer = new Xlsx($spreadsheet);
+} catch (\Throwable $e) {
+    // If instantiation failed, give a useful message
+    die("Failed to instantiate Xlsx writer: " . $e->getMessage());
+}
+
+// Save wrapped in try/catch to capture permission/path errors
+try {
+    $writer->save($savePath);
+} catch (\Throwable $e) {
+    die("Could not save Excel file to '{$savePath}': " . $e->getMessage());
+}
 
 // =========================
-// Email Report (attachment)
+// Send email with attachment
 // =========================
 $to = "aditya.gupin1950@gmail.com";
 $subject = "Daily Leads Report – " . date("Y-m-d");
 $message = "Attached is your daily leads report.";
-$headers = "From: no-reply@canprosys.com";
+$from = "no-reply@yourdomain.com";
 
-$fileContent = file_get_contents($filename);
+$fileContent = file_get_contents($savePath);
+if ($fileContent === false) {
+    die("Failed to read saved file for email attachment.");
+}
 $encoded = chunk_split(base64_encode($fileContent));
 $boundary = md5(time());
 
-$headers .= "\r\nMIME-Version: 1.0\r\n";
-$headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+$headers = "From: {$from}\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: multipart/mixed; boundary=\"{$boundary}\"\r\n";
 
-$body  = "--$boundary\r\n";
+$body  = "--{$boundary}\r\n";
 $body .= "Content-Type: text/plain; charset=UTF-8\r\n\r\n";
-$body .= "$message\r\n\r\n";
+$body .= "{$message}\r\n\r\n";
 
-$body .= "--$boundary\r\n";
-$body .= "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; name=\"Daily_Leads_Report.xlsx\"\r\n";
+$body .= "--{$boundary}\r\n";
+$body .= "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; name=\"{$filename}\"\r\n";
 $body .= "Content-Transfer-Encoding: base64\r\n";
-$body .= "Content-Disposition: attachment; filename=\"Daily_Leads_Report.xlsx\"\r\n\r\n";
-$body .= "$encoded\r\n";
-$body .= "--$boundary--";
+$body .= "Content-Disposition: attachment; filename=\"{$filename}\"\r\n\r\n";
+$body .= $encoded . "\r\n";
+$body .= "--{$boundary}--\r\n";
 
-mail($to, $subject, $body, $headers);
+if (!mail($to, $subject, $body, $headers)) {
+    echo "Warning: mail() returned false. File saved at: {$savePath}\n";
+} else {
+    echo "Excel saved and emailed successfully. File: {$savePath}\n";
+}
 
-echo "Excel daily report sent successfully.";
+
+$conn->close();

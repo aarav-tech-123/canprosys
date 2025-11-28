@@ -11,5 +11,7 @@
             "email": "aditya.gupta@aaravtech.net"
         }
     ],
-    "require": {}
+    "require": {
+        "phpoffice/phpspreadsheet": "^5.3"
+    }
 }
