@@ -16,7 +16,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 // ========================
 // Database connection
 // ========================
-$servername = "srv1445.hstgr.io";
+$servername = "localhost";
 $username   = "u450081634_canprosys";
 $password   = "Aarav@2871#";
 $dbname     = "u450081634_canprosys";
