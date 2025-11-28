@@ -171,4 +171,6 @@ $body .= "--" . $separator . "--";
 
 mail($to, $subject, $body, $headers);
 
+echo "Email sent to $to with the leads report.";
+
 $conn->close();
