@@ -113,7 +113,7 @@ try {
 // =========================
 // Send email with attachment
 // =========================
-$to = "support@canprosys.com, kushagra.srivastava@aaravtech.net, santosh.rana@aaravtech.net, veneet.tewari@aaravtech.net";
+$to = "marketing@aaravtech.net, developer@aaravtech.net";
 $subject = "Daily Leads Report – " . date("Y-m-d");
 $message = "Attached is your daily leads report.";
 $from = "no-reply@yourdomain.com";
