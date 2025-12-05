@@ -568,6 +568,18 @@ $stmt_meta->close();
     })(window, document, 'script', 'dataLayer', 'GTM-KP2G33GV');
     </script>
     <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2HJLP07QR8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-2HJLP07QR8');
+    </script>
 </head>
 
 <body>
