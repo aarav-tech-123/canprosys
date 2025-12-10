@@ -90,7 +90,7 @@ $message
 
 Submitted on: " . date("Y-m-d H:i:s");
 
-        $admin_headers = "From: no-reply@yourdomain.com";
+        $admin_headers = "From: no-reply@canprosys.com";
 
         mail($admin_email, $admin_subject, $admin_message, $admin_headers);
 
@@ -100,7 +100,7 @@ Submitted on: " . date("Y-m-d H:i:s");
         $user_subject = "Thank You for Contacting Us";
         $user_message = "Hi $name,\n\nThank you for reaching out. We received your request and our team will contact you shortly.\n\nRegards,\nCanprosys Consultants Inc.";
 
-        $user_headers = "From: no-reply@yourdomain.com";
+        $user_headers = "From: no-reply@canprosys.com";
 
         mail($email, $user_subject, $user_message, $user_headers);
 
