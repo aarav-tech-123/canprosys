@@ -262,7 +262,7 @@ if ($result === false) {
 
         .blog-image {
             width: 100%;
-            height: 220px;
+            /* height: 220px; */
             object-fit: cover;
             border-radius: 10px 10px 0 0;
         }
